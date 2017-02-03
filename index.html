@@ -22,8 +22,15 @@
         </div>
         <button id="plus" type="button">+</button>
 
-        <button type="submit" name="button">GO!</button>
+        <button type="submit" name="button">LANCE!</button>
       </form>
+    </section>
+    <section>
+      <dl id="fifo">
+        <dt>
+          FIFO - (FCFS - First Come, First Served)
+        </dt>
+      </dl>
     </section>
   </body>
   <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
@@ -33,6 +40,7 @@
 
     $('#job').on('submit', function(event) {
       var arr = mountArray(event);
+      fifo(arr);
     })
   </script>
 </html>

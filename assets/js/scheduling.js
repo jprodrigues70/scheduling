@@ -28,3 +28,36 @@ function mountArray(event) {
 
   return arr;
 }
+
+function SortByArrival(a, b){
+  var aArrival = a.off.toLowerCase();
+  var bArrival = b.off.toLowerCase();
+  return ((aArrival < bArrival) ? -1 : ((aArrival > bArrival) ? 1 : 0));
+}
+
+function getJob(i) {
+  var job = 65 + i;
+  return String.fromCharCode(job);
+}
+
+function fifo(arr) {
+  arr.sort(SortByArrival);
+
+  for (var i = 0; i < arr.length; i++) {
+    var diff = 0;
+
+    if (arr[i].execution != 0) {
+
+      if (i > 0) diff = (parseInt(arr[i].distance) + parseInt(arr[i - 1].distance) + parseInt(arr[i - 1].execution) - parseInt(arr[i].off)).toString();
+
+      if (diff > parseInt(arr[i].distance)) arr[i].distance = diff;
+
+
+      wait = (parseInt(arr[i].distance) - parseInt(arr[i].off)).toString();
+      if (parseInt(wait) < 0) wait = '0';
+
+
+      $('#fifo').append('<dd class="job execution-' + arr[i].execution + ' wait-' + wait + ' distance-' + arr[i].distance + ' off-' + arr[i].off + '"><span class="text">' + getJob(i) + '</span></dd>');
+    }
+  }
+}
