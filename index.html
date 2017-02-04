@@ -3,21 +3,44 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="assets/css/scheduling.css" media="screen" title="no title">
-    <title></title>
+    <title>Scheduling</title>
   </head>
   <body>
     <section>
-      <dl>
+      <form id="job">
+        <div class="container">
+          <div class="job-info">
+            <label for="arrival-0">T. Chegada</label>
+            <input id="arrival-0" min="0" value="0" step="any" class="count" type="number" name="arrival-0">
+
+            <label for="execution-0">T. Execução</label>
+            <input id="execution-0" min="0" value="0" step="any" type="number" name="execution-0">
+
+            <label for="deadline-0">Deadline</label>
+            <input id="deadline-0" min="0" value="0" step="any" type="number" name="deadline-0">
+          </div>
+        </div>
+        <button id="plus" type="button">+</button>
+
+        <button type="submit" name="button">LANCE!</button>
+      </form>
+    </section>
+    <section>
+      <dl id="fifo">
         <dt>
-          FIFO
+          FIFO - (FCFS - First Come, First Served)
         </dt>
-        <dd class="job execution-1 e-float-50 wait-0"><span class="text">A</span></dd>
-        <dd class="job execution-3 distance-1 wait-2 off-0"><span class="text">B</span></dd>
-        <dd class="job execution-3 distance-4 off-1 wait-3"><span class="text">C</span></dd>
-        <dd class="job execution-4 distance-7 off-4"><span class="text">D</span></dd>
-        <dd class="job execution-2 distance-11"><span class="text">E</span></dd>
-        <dd class="job execution-5 distance-13"><span class="text">F</span></dd>
       </dl>
     </section>
   </body>
+  <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/scheduling.js"></script>
+  <script type="text/javascript">
+    $('#plus').on('click', function() { newJobInfo() });
+
+    $('#job').on('submit', function(event) {
+      var arr = mountArray(event);
+      fifo(arr);
+    })
+  </script>
 </html>
