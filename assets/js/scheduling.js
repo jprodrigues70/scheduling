@@ -53,7 +53,7 @@ function getJob(i) {
  * @param  {float} execution Job execution time
  * @param  {float} wait      Job Wait time
  * @param  {float} distance  Time between 0 and job execution start
- * @param  {float} off       Time between job arrival time and job execution start
+ * @param  {float} off       Time between 0 and job arrival time
  * @param  {integer} i       iterate value
  * @return {String}          HTML Element that represents the job
  */
