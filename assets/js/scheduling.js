@@ -109,14 +109,14 @@ function SortByArrival(a, b){
 function turnAround(arr, to) {
   var sum = 0;
   var jobs = arr.length;
-  
+
   for (var i = 0; i < arr.length; i++) {
     (arr[i].execution != 0)? sum = sum + arr[i].wait + arr[i].execution: jobs = jobs - 1;
   }
 
   tA = sum/jobs
 
-  $("#turnAround" + to).append("Turnaround: " + tA.toFixed(2).toString());
+  $("#turnAround" + to).text("Turnaround: " + tA.toFixed(2).toString());
 
   return tA;
 }
