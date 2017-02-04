@@ -101,6 +101,27 @@ function SortByArrival(a, b){
 }
 
 /**
+ * Calculates the Turnaround
+ * @param  {Array} arr  Job Array
+ * @param  {String} to  Sxheduling algorithm name
+ * @return {Float}
+ */
+function turnAround(arr, to) {
+  var sum = 0;
+  var jobs = arr.length;
+  
+  for (var i = 0; i < arr.length; i++) {
+    (arr[i].execution != 0)? sum = sum + arr[i].wait + arr[i].execution: jobs = jobs - 1;
+  }
+
+  tA = sum/jobs
+
+  $("#turnAround" + to).append("Turnaround: " + tA.toFixed(2).toString());
+
+  return tA;
+}
+
+/**
  * Scheduling by Arrival
  * @param  {Array} arr  Job Array
  * @return {void}
@@ -119,10 +140,11 @@ function fifo(arr) {
 
       arr[i].wait = (arr[i].distance - arr[i].off);
 
-      if (arr[i].wait < 0) wait = 0;
+      if (arr[i].wait < 0) arr[i].wait = 0;
 
 
       $('#fifo').append(mountHtml(arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i));
     }
   }
+  turnAround(arr, 'Fifo');
 }
