@@ -117,12 +117,12 @@ function fifo(arr) {
 
       if (diff > arr[i].distance) arr[i].distance = diff;
 
-      wait = (arr[i].distance - arr[i].off);
+      arr[i].wait = (arr[i].distance - arr[i].off);
 
-      if (wait < 0) wait = 0;
+      if (arr[i].wait < 0) wait = 0;
 
 
-      $('#fifo').append(mountHtml(arr[i].execution, wait, arr[i].distance, arr[i].off, i));
+      $('#fifo').append(mountHtml(arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i));
     }
   }
 }
