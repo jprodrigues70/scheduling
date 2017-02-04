@@ -101,6 +101,26 @@ function SortByArrival(a, b){
 }
 
 /**
+ * Argument to sort by Arrival and Execution
+ * @param {number} a element to be compared
+ * @param {number} b element to be compared
+ * @return {number}
+ */
+function SortByArrivalAndExecution(a, b){
+  if (a.off < b.off) return -1;
+  if (a.off > b.off) return 1;
+  if (a.off == b.off) {
+	  
+	  if (a.execution < b.execution) return -1;
+	  
+	  if (a.execution > b.execution) return 1;
+  }
+  return 0
+}
+
+
+
+/**
  * Calculates the Turnaround
  * @param  {Array} arr  Job Array
  * @param  {String} to  Sxheduling algorithm name
@@ -148,3 +168,23 @@ function fifo(arr) {
   }
   turnAround(arr, 'Fifo');
 }
+
+function sjf(arr) {
+  arr.sort(SortByArrivalAndExecution);
+  var ExecutingTime = 0;
+  for (var i = 0; i < arr.length; i++) {
+  	if (arr[i].execution != 0) {
+		if(i > 0){
+			arr[i].wait = (arr[i-1].distance + arr[i-1].execution) - arr[i].off;
+			arr[i].distance = arr[i-1].off + arr[i-1].execution + arr[i-1].wait;
+		}else{
+			arr[i].wait = 0;
+			arr[i].distance = arr[i].off;
+		}
+		$('#sjf').append(mountHtml(arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i));
+		ExecutingTime = arr[i].execution + arr[i].distance;
+	}
+  }
+  turnAround(arr, 'Sjf');
+}
+

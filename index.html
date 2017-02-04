@@ -33,6 +33,14 @@
         <dt id="turnAroundFifo"></dt>
       </dl>
     </section>
+    <section>
+      <dl id="sjf">
+        <dt>
+          SJF - (Shorterst Job First)
+        </dt>
+        <dt id="turnAroundSjf"></dt>
+      </dl>
+    </section>
   </body>
   <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="assets/js/scheduling.js"></script>
@@ -41,7 +49,9 @@
 
     $('#job').on('submit', function(event) {
       var arr = mountArray(event);
+	  var arr2 = mountArray(event);
       fifo(arr);
+	  sjf(arr2);
     })
   </script>
 </html>
