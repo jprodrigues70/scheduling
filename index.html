@@ -7,22 +7,25 @@
   </head>
   <body>
     <section>
-      <form id="job">
+      <form id="job" class="center-form">
         <div class="container">
           <div class="job-info">
-            <label for="arrival-0">T. Chegada</label>
-            <input id="arrival-0" min="0" value="0" step="any" class="count" type="number" name="arrival-0">
-
-            <label for="execution-0">T. Execução</label>
-            <input id="execution-0" min="0" value="0" step="any" type="number" name="execution-0">
-
-            <label for="deadline-0">Deadline</label>
-            <input id="deadline-0" min="0" value="0" step="any" type="number" name="deadline-0">
+            <div class="field-group-inline">
+              <label for="arrival-0">T. Chegada</label>
+              <input id="arrival-0" min="0" value="0" step="any" class="count" type="number" name="arrival-0">
+            </div>
+            <div class="field-group-inline">
+              <label for="execution-0">T. Execução</label>
+              <input id="execution-0" min="0" value="0" step="any" type="number" name="execution-0">
+            </div>
+            <div class="field-group-inline">
+              <label for="deadline-0">Deadline</label>
+              <input id="deadline-0" min="0" value="0" step="any" type="number" name="deadline-0">
+            </div>
           </div>
         </div>
-        <button id="plus" type="button">+</button>
-
-        <button type="submit" name="button">LANCE!</button>
+        <button id="plus" type="button" class="btn inline">+</button>
+        <button type="submit" name="button" class="btn inline">LANCE!</button>
       </form>
     </section>
     <section>
