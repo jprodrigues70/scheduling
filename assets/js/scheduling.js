@@ -6,12 +6,18 @@ function newJobInfo() {
   var count = parseInt($('#plus').attr('value')) || 1;
   $('#job .container').append('\
     <div class="job-info">\
-      <label for="arrival-' + count + '">T. Chegada</label>\
-      <input id="arrival-' + count + '" value="0" min="0" step="any" class="count" type="number" name="arrival-' + count + '">\
-      <label for="execution-' + count + '">T. Execução</label>\
-      <input id="execution-' + count + '" value="0" min="0" step="any" type="number" name="execution-' + count + '">\
-      <label for="deadline-' + count + '">Deadline</label>\
-      <input id="deadline-' + count + '" value="0" min="0" step="any" type="number" name="deadline-' + count + '">\
+      <div class="field-group-inline">\
+        <label for="arrival-' + count + '">T. Chegada</label>\
+        <input id="arrival-' + count + '" value="0" min="0" step="any" class="count" type="number" name="arrival-' + count + '">\
+      </div>\
+      <div class="field-group-inline">\
+        <label for="execution-' + count + '">T. Execução</label>\
+        <input id="execution-' + count + '" value="0" min="0" step="any" type="number" name="execution-' + count + '">\
+      </div>\
+      <div class="field-group-inline">\
+        <label for="deadline-' + count + '">Deadline</label>\
+        <input id="deadline-' + count + '" value="0" min="0" step="any" type="number" name="deadline-' + count + '">\
+      </div>\
     </div>');
 
   count = count + 1;
