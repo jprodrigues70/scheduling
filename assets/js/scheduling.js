@@ -7,6 +7,10 @@ function newJobInfo() {
   $('#job .container').append('\
     <div class="job-info">\
       <div class="field-group-inline">\
+        <label for="name-' + count + '">T. Chegada</label>\
+        <input disabled id="name-' + count + '" value="' + getJob(count) + '" type="text" name="name-' + count + '">\
+      </div>\
+      <div class="field-group-inline">\
         <label for="arrival-' + count + '">T. Chegada</label>\
         <input id="arrival-' + count + '" value="0" min="0" step="any" class="count" type="number" name="arrival-' + count + '">\
       </div>\
@@ -37,8 +41,9 @@ function mountArray(event) {
   for (var i = 0; i < $('.count').length; i++) {
     exec = parseFloat($('#execution-' + i).val());
     arrival = parseFloat($('#arrival-' + i).val());
+    n = $('#name-' + i).val();
 
-    arr.push({execution: exec, off: arrival, distance: arrival});
+    arr.push({execution: exec, off: arrival, distance: arrival, name: n});
   }
 
   return arr;
@@ -63,7 +68,7 @@ function getJob(i) {
  * @param  {integer} i       iterate value
  * @return {String}          HTML Element that represents the job
  */
-function mountHtml(execution, wait, distance, off, i) {
+function mountHtml(name, execution, wait, distance, off, i) {
   eFloat = getDecimal(execution);
   execution = getInteger(execution);
   wFloat = getDecimal(wait);
@@ -73,7 +78,7 @@ function mountHtml(execution, wait, distance, off, i) {
   oFloat = getDecimal(off);
   off = getInteger(off);
 
-  return '<dd class="job execution-' + execution + ' e-float-' + eFloat + ' wait-' + wait + ' w-float-' + wFloat + ' distance-' + distance + ' d-float-' + dFloat + ' off-' + off + ' o-float-' + oFloat + '"><span class="text">' + getJob(i) + '</span></dd>';
+  return '<dd class="job execution-' + execution + ' e-float-' + eFloat + ' wait-' + wait + ' w-float-' + wFloat + ' distance-' + distance + ' d-float-' + dFloat + ' off-' + off + ' o-float-' + oFloat + '"><span class="text">' + name + '</span></dd>';
 }
 
 /**
@@ -105,6 +110,40 @@ function SortByArrival(a, b){
   var bArrival = b.off;
   return ((aArrival < bArrival) ? -1 : ((aArrival > bArrival) ? 1 : 0));
 }
+
+/**
+ * Argument to sort by Execution
+ * @param {number} a element to be compared
+ * @param {number} b element to be compared
+ * @return {number}
+ */
+function SortByExecution(a, b){
+  var aExecution = a.execution;
+  var bExecution = b.execution;
+  return ((aExecution < bExecution) ? -1 : ((aExecution > bExecution) ? 1 : 0));
+}
+
+
+/**
+ * Argument to sort by Arrival and Execution
+ * @param {number} a element to be compared
+ * @param {number} b element to be compared
+ * @return {number}
+ */
+function SortByArrivalAndExecution(a, b){
+
+  if (a.off < b.off) return -1;
+  if (a.off > b.off) return 1;
+  if (a.off == b.off) {
+
+	  if (a.execution < b.execution) return -1;
+
+	  if (a.execution > b.execution) return 1;
+  }
+  return 0
+}
+
+
 
 /**
  * Calculates the Turnaround
@@ -149,8 +188,43 @@ function fifo(arr) {
       if (arr[i].wait < 0) arr[i].wait = 0;
 
 
-      $('#fifo').append(mountHtml(arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i));
+      $('#fifo').append(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i));
     }
   }
   turnAround(arr, 'Fifo');
+}
+
+function sjf(arr) {
+
+  var ExecutingTime = 0;
+  var arr3 = [];
+
+  while (arr.length > 0){
+
+    arr.sort(SortByArrivalAndExecution);
+
+    var arr2 = [];
+    for(var i = 0; i < arr.length; i++){
+      if(arr[i].off <= ExecutingTime){
+        arr2.push(arr[i]);
+      }
+    }
+
+    if(typeof arr2[0] !== 'undefined'){
+      if(arr2[0].off <= ExecutingTime){
+        arr2.sort(SortByExecution);
+        arr.splice.apply(arr, [0, arr2.length].concat(arr2));
+        arr[0].distance = ExecutingTime;
+        arr[0].wait = ExecutingTime - arr[0].off;
+        $('#sjf').append(mountHtml(arr[0].name, arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i));
+        ExecutingTime = (arr[0].distance + arr[0].execution)-1;
+        arr3.push(arr[0]);
+        arr.splice(0, 1);
+      }
+    }
+
+    ExecutingTime++;
+
+  }
+  turnAround(arr3, 'Sjf');
 }
