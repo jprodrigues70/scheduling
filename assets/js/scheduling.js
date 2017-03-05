@@ -68,7 +68,7 @@ function getJob(i) {
  * @param  {integer} i       iterate value
  * @return {String}          HTML Element that represents the job
  */
-function mountHtml(name, execution, wait, distance, off, i, over = 0) {
+function mountHtml(name, execution, wait, distance, off, i, over = 0, aClass = '') {
   eFloat = getDecimal(execution);
   execution = getInteger(execution);
   wFloat = getDecimal(wait);
@@ -80,7 +80,7 @@ function mountHtml(name, execution, wait, distance, off, i, over = 0) {
   ov = parseInt($('#overload').val());
   over = (over > 0) ? "class=\"overload " + getInteger(over) + "\" style = \"left: " + ((execution*20)  - 20*ov)+ "px; width: " + 20*ov + "px\"": '';
   console.log(execution)
-  return '<dd class="job execution-' + execution + ' e-float-' + eFloat + ' wait-' + wait + ' w-float-' + wFloat + ' distance-' + distance + ' d-float-' + dFloat + ' off-' + off + ' o-float-' + oFloat + '"><span class="text">' + name + '</span><div ' + over + '></div></dd>';
+  return '<dd class="' + aClass + ' job execution-' + execution + ' e-float-' + eFloat + ' wait-' + wait + ' w-float-' + wFloat + ' distance-' + distance + ' d-float-' + dFloat + ' off-' + off + ' o-float-' + oFloat + '"><span class="text">' + name + '</span><div ' + over + '></div></dd>';
 }
 
 /**
@@ -236,16 +236,19 @@ function roundRobin(arr) {
   var quantum = parseInt($('#quantum').val());
   var over = parseInt($('#overload').val());
   arr.sort(SortByArrival);
+  fl = arr.length;
 
   for (var i = 0; i < arr.length; i++) {
     if (arr[i].execution <= 0) return;
 
     if (arr[i].execution <= quantum) {
       arr[i].over = 0;
+      arr[i].aClass = '';
     } else {
       exec = arr[i].execution - quantum;
       arr[i].execution = quantum + over;
       arr[i].over = over;
+      arr[i].aClass = 'hasChild';
       arr.push({execution: exec, off: arr[i].off, distance: arr[i].distance, name: arr[i].name});
     }
   }
@@ -258,8 +261,11 @@ function roundRobin(arr) {
       if (diff > arr[i].distance) arr[i].distance = diff;
       arr[i].wait = (arr[i].distance - arr[i].off);
       if (arr[i].wait < 0) arr[i].wait = 0;
-
-      $('#rr').append(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i, arr[i].over));
+      if (i < fl) {
+        $('#rr').append(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i, arr[i].over, 'rr' + arr[i].name + ' ' + arr[i].aClass));
+      } else {
+        $('.rr' + arr[i].name).prepend(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i, arr[i].over, 'child'));
+      }
       if (arr[i].over == 0) arr2.push(arr[i]);
     }
   }

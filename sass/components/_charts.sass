@@ -40,6 +40,32 @@ dt
   padding-left: 1px
   position: relative
 
+  &.child:nth-child(even):before
+    background-color: transparent
+
+  &.child:nth-child(odd):before
+    background-color: transparent
+
+  &.hasChild:nth-child(odd):before
+    background-color: transparent
+
+  &.hasChild:nth-child(even):before
+    background-color: transparent
+
+  &:first-child:before
+    background-color: rgba(124, 177, 36, 0.34)!important
+
+  .child
+    margin: 0
+    position: absolute
+    left: 0
+    width: 100%
+    height: 100%
+    background: transparent
+
+    .text
+      display: none
+
   .overload
     content: ""
     background-color: rgb(202, 60, 49)
