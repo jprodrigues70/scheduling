@@ -192,6 +192,7 @@ function fifo(arr) {
 function sjf(arr) {
   
   var ExecutingTime = 0;
+  var arr3 = [];
   
   while (arr.length > 0){
     
@@ -204,20 +205,23 @@ function sjf(arr) {
       }
     }
     
-    if(arr2[0].off <= ExecutingTime){
-      console.log(arr2);
-      arr2.sort(SortByExecution);
-      console.log(arr2);
-      arr.splice.apply(arr, [0, arr2.length].concat(arr2));
-      arr[0].distance = ExecutingTime;
-      arr[0].wait = ExecutingTime - arr[0].off;
-      $('#sjf').append(mountHtml(arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i));
-      ExecutingTime = (arr[0].distance + arr[0].execution)-1;
-      arr.splice(0, 1);
+    if(typeof arr2[0] !== 'undefined'){
+      if(arr2[0].off <= ExecutingTime){
+        console.log(arr2);
+        arr2.sort(SortByExecution);
+        console.log(arr2);
+        arr.splice.apply(arr, [0, arr2.length].concat(arr2));
+        arr[0].distance = ExecutingTime;
+        arr[0].wait = ExecutingTime - arr[0].off;
+        $('#sjf').append(mountHtml(arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i));
+        ExecutingTime = (arr[0].distance + arr[0].execution)-1;
+        arr3.push(arr[0]);
+        arr.splice(0, 1);
+      }
     }
     
     ExecutingTime++;
     
   }
-  turnAround(arr, 'Sjf');
+  turnAround(arr3, 'Sjf');
 }
