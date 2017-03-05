@@ -107,12 +107,26 @@ function SortByArrival(a, b){
 }
 
 /**
+ * Argument to sort by Execution
+ * @param {number} a element to be compared
+ * @param {number} b element to be compared
+ * @return {number}
+ */
+function SortByExecution(a, b){
+  var aExecution = a.execution;
+  var bExecution = b.execution;
+  return ((aExecution < bExecution) ? -1 : ((aExecution > bExecution) ? 1 : 0));
+}
+
+
+/**
  * Argument to sort by Arrival and Execution
  * @param {number} a element to be compared
  * @param {number} b element to be compared
  * @return {number}
  */
 function SortByArrivalAndExecution(a, b){
+  
   if (a.off < b.off) return -1;
   if (a.off > b.off) return 1;
   if (a.off == b.off) {
@@ -176,21 +190,34 @@ function fifo(arr) {
 }
 
 function sjf(arr) {
-  arr.sort(SortByArrivalAndExecution);
+  
   var ExecutingTime = 0;
-  for (var i = 0; i < arr.length; i++) {
-  	if (arr[i].execution != 0) {
-		if(i > 0){
-			arr[i].wait = (arr[i-1].distance + arr[i-1].execution) - arr[i].off;
-			arr[i].distance = arr[i-1].off + arr[i-1].execution + arr[i-1].wait;
-		}else{
-			arr[i].wait = 0;
-			arr[i].distance = arr[i].off;
-		}
-		$('#sjf').append(mountHtml(arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i));
-		ExecutingTime = arr[i].execution + arr[i].distance;
-	}
+  
+  while (arr.length > 0){
+    
+    arr.sort(SortByArrivalAndExecution);
+    
+    var arr2 = [];
+    for(var i = 0; i < arr.length; i++){
+      if(arr[i].off <= ExecutingTime){
+        arr2.push(arr[i]);
+      }
+    }
+    
+    if(arr2[0].off <= ExecutingTime){
+      console.log(arr2);
+      arr2.sort(SortByExecution);
+      console.log(arr2);
+      arr.splice.apply(arr, [0, arr2.length].concat(arr2));
+      arr[0].distance = ExecutingTime;
+      arr[0].wait = ExecutingTime - arr[0].off;
+      $('#sjf').append(mountHtml(arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i));
+      ExecutingTime = (arr[0].distance + arr[0].execution)-1;
+      arr.splice(0, 1);
+    }
+    
+    ExecutingTime++;
+    
   }
   turnAround(arr, 'Sjf');
 }
-
