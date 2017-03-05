@@ -11,6 +11,10 @@
         <div class="container">
           <div class="job-info">
             <div class="field-group-inline">
+              <label for="name-0">Processo</label>
+              <input id="name-0" disabled value="A" type="text" name="name-0">
+            </div>
+            <div class="field-group-inline">
               <label for="arrival-0">T. Chegada</label>
               <input id="arrival-0" min="0" value="0" step="any" class="count" type="number" name="arrival-0">
             </div>
@@ -52,9 +56,9 @@
 
     $('#job').on('submit', function(event) {
       var arr = mountArray(event);
-	  var arr2 = mountArray(event);
+  	  // var arr2 = mountArray(event);
       fifo(arr);
-	  sjf(arr2);
+	    sjf(arr);
     })
   </script>
 </html>
