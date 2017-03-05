@@ -77,7 +77,8 @@ function mountHtml(name, execution, wait, distance, off, i, over = 0) {
   distance = getInteger(distance);
   oFloat = getDecimal(off);
   off = getInteger(off);
-  over = (over > 0) ? "class=\"overload " + getInteger(over) + "\" style = \"left: " + ((execution*20)  - 20)+ "px\"": '';
+  ov = parseInt($('#overload').val());
+  over = (over > 0) ? "class=\"overload " + getInteger(over) + "\" style = \"left: " + ((execution*20)  - 20*ov)+ "px; width: " + 20*ov + "px\"": '';
   console.log(execution)
   return '<dd class="job execution-' + execution + ' e-float-' + eFloat + ' wait-' + wait + ' w-float-' + wFloat + ' distance-' + distance + ' d-float-' + dFloat + ' off-' + off + ' o-float-' + oFloat + '"><span class="text">' + name + '</span><div ' + over + '></div></dd>';
 }
@@ -232,12 +233,10 @@ function sjf(arr) {
 }
 
 function roundRobin(arr) {
-  console.log(arr);
-  var quantum = 2;
-  var over = 1;
-  var execution = 0;
-  var fl = arr.length;
+  var quantum = parseInt($('#quantum').val());
+  var over = parseInt($('#overload').val());
   arr.sort(SortByArrival);
+
   for (var i = 0; i < arr.length; i++) {
     if (arr[i].execution <= 0) return;
 
@@ -245,17 +244,15 @@ function roundRobin(arr) {
       arr[i].over = 0;
     } else {
       exec = arr[i].execution - quantum;
-      over = 1;
       arr[i].execution = quantum + over;
-      arr[i].over = 1;
+      arr[i].over = over;
       arr.push({execution: exec, off: arr[i].off, distance: arr[i].distance, name: arr[i].name});
     }
   }
 
+  var arr2 = [];
   for (var i = 0; i < arr.length; i++) {
-
     var diff = 0;
-
     if (arr[i].execution != 0) {
       if (i > 0) diff = (arr[i].distance + arr[i - 1].distance + arr[i - 1].execution - arr[i].off);
       if (diff > arr[i].distance) arr[i].distance = diff;
@@ -263,14 +260,8 @@ function roundRobin(arr) {
       if (arr[i].wait < 0) arr[i].wait = 0;
 
       $('#rr').append(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i, arr[i].over));
+      if (arr[i].over == 0) arr2.push(arr[i]);
     }
-  }
-
-  console.log(arr)
-  var s = arr.length;
-  var arr2 = [];
-  for (var i = 0; i < s; i++) {
-    if (arr[i].over == 0) arr2.push(arr[i]);
   }
 
   turnAround(arr2, 'Rr');
