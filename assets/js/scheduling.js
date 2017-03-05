@@ -68,7 +68,7 @@ function getJob(i) {
  * @param  {integer} i       iterate value
  * @return {String}          HTML Element that represents the job
  */
-function mountHtml(name, execution, wait, distance, off, i) {
+function mountHtml(name, execution, wait, distance, off, i, over = 0) {
   eFloat = getDecimal(execution);
   execution = getInteger(execution);
   wFloat = getDecimal(wait);
@@ -77,6 +77,7 @@ function mountHtml(name, execution, wait, distance, off, i) {
   distance = getInteger(distance);
   oFloat = getDecimal(off);
   off = getInteger(off);
+  over = getInteger(over);
 
   return '<dd class="job execution-' + execution + ' e-float-' + eFloat + ' wait-' + wait + ' w-float-' + wFloat + ' distance-' + distance + ' d-float-' + dFloat + ' off-' + off + ' o-float-' + oFloat + '"><span class="text">' + name + '</span></dd>';
 }
@@ -227,4 +228,41 @@ function sjf(arr) {
 
   }
   turnAround(arr3, 'Sjf');
+}
+
+function roundRobin(arr) {
+  console.log(arr);
+  var quantum = 2;
+  var over = 0;
+  var execution = 0;
+  var fl = arr.length;
+  arr.sort(SortByArrival);
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].execution <= 0) return;
+
+    if (arr[i].execution <= quantum) {
+      over = 0;
+    } else {
+      exec = arr[i].execution - quantum;
+      over = 1;
+      arr[i].execution = quantum + over;
+      arr.push({execution: exec, off: arr[i].off, distance: arr[i].distance, name: arr[i].name});
+    }
+  }
+
+  for (var i = 0; i < arr.length; i++) {
+
+    var diff = 0;
+
+    if (arr[i].execution != 0) {
+      if (i > 0) diff = (arr[i].distance + arr[i - 1].distance + arr[i - 1].execution - arr[i].off);
+      if (diff > arr[i].distance) arr[i].distance = diff;
+      arr[i].wait = (arr[i].distance - arr[i].off);
+      if (arr[i].wait < 0) arr[i].wait = 0;
+
+      $('#rr').append(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i));
+    }
+  }
+
+  turnAround(arr, 'Rr');
 }
