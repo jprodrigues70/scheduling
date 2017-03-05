@@ -77,9 +77,9 @@ function mountHtml(name, execution, wait, distance, off, i, over = 0) {
   distance = getInteger(distance);
   oFloat = getDecimal(off);
   off = getInteger(off);
-  over = getInteger(over);
-
-  return '<dd class="job execution-' + execution + ' e-float-' + eFloat + ' wait-' + wait + ' w-float-' + wFloat + ' distance-' + distance + ' d-float-' + dFloat + ' off-' + off + ' o-float-' + oFloat + '"><span class="text">' + name + '</span></dd>';
+  over = (over > 0) ? "class=\"overload " + getInteger(over) + "\" style = \"left: " + ((execution*20)  - 20)+ "px\"": '';
+  console.log(execution)
+  return '<dd class="job execution-' + execution + ' e-float-' + eFloat + ' wait-' + wait + ' w-float-' + wFloat + ' distance-' + distance + ' d-float-' + dFloat + ' off-' + off + ' o-float-' + oFloat + '"><span class="text">' + name + '</span><div ' + over + '></div></dd>';
 }
 
 /**
@@ -155,6 +155,7 @@ function SortByArrivalAndExecution(a, b){
 function turnAround(arr, to) {
   var sum = 0;
   var jobs = arr.length;
+  console.log(jobs)
 
   for (var i = 0; i < arr.length; i++) {
     (arr[i].execution != 0)? sum = sum + arr[i].wait + arr[i].execution: jobs = jobs - 1;
@@ -233,7 +234,7 @@ function sjf(arr) {
 function roundRobin(arr) {
   console.log(arr);
   var quantum = 2;
-  var over = 0;
+  var over = 1;
   var execution = 0;
   var fl = arr.length;
   arr.sort(SortByArrival);
@@ -241,11 +242,12 @@ function roundRobin(arr) {
     if (arr[i].execution <= 0) return;
 
     if (arr[i].execution <= quantum) {
-      over = 0;
+      arr[i].over = 0;
     } else {
       exec = arr[i].execution - quantum;
       over = 1;
       arr[i].execution = quantum + over;
+      arr[i].over = 1;
       arr.push({execution: exec, off: arr[i].off, distance: arr[i].distance, name: arr[i].name});
     }
   }
@@ -260,9 +262,16 @@ function roundRobin(arr) {
       arr[i].wait = (arr[i].distance - arr[i].off);
       if (arr[i].wait < 0) arr[i].wait = 0;
 
-      $('#rr').append(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i));
+      $('#rr').append(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i, arr[i].over));
     }
   }
 
-  turnAround(arr, 'Rr');
+  console.log(arr)
+  var s = arr.length;
+  var arr2 = [];
+  for (var i = 0; i < s; i++) {
+    if (arr[i].over == 0) arr2.push(arr[i]);
+  }
+
+  turnAround(arr2, 'Rr');
 }

@@ -38,6 +38,25 @@ dt
   background: repeating-linear-gradient(to right, #ddd, #ddd 1px, #fff 0px, #fff 20px)
   background: -moz-repeating-linear-gradient(to right, #ddd, #ddd 1px, #fff 0px, #fff 20px)
   padding-left: 1px
+  position: relative
+
+  .overload
+    content: ""
+    background-color: rgb(202, 60, 49)
+    height: 90%
+    top: 50%
+    transform: translateY(-50%)
+    transition: background-color 0.3s ease 0s
+    cursor: pointer
+    box-sizing: content-box
+    padding: 0px
+    margin: 0px
+    display: block
+    position: relative
+    width: 20px
+    z-index: 5
+    float: left
+    left: 0
 
   &:before
     content: ""
