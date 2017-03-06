@@ -302,7 +302,7 @@ function roundRobin(arr) {
               return (className.match (/(^|\s)wait-\S+/g) || []).join(' ');
           });
           $('.rr' + arr[i].name + ' .child:first-child').addClass('off-' + f.off);
-          $('.rr' + arr[i].name + ' .child:first-child').addClass('wait-' + (getInteger(arr[i].distance)));
+          $('.rr' + arr[i].name + ' .child:first-child').addClass('wait-' + (getInteger(arr[i].distance) - getInteger(f.off)));
         }
         arr2.push(arr[i]);
       }
