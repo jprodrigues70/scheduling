@@ -79,7 +79,6 @@ function mountHtml(name, execution, wait, distance, off, i, over = 0, aClass = '
   off = getInteger(off);
   ov = parseInt($('#overload').val());
   over = (over > 0) ? "class=\"overload " + getInteger(over) + "\" style = \"left: " + ((execution*20)  - 20*ov)+ "px; width: " + 20*ov + "px\"": '';
-  console.log(execution)
   return '<dd class="' + aClass + ' job execution-' + execution + ' e-float-' + eFloat + ' wait-' + wait + ' w-float-' + wFloat + ' distance-' + distance + ' d-float-' + dFloat + ' off-' + off + ' o-float-' + oFloat + '"><span class="text">' + name + '</span><div ' + over + '></div></dd>';
 }
 
@@ -110,6 +109,24 @@ function getDecimal(value) {
 function SortByArrival(a, b){
   var aArrival = a.off;
   var bArrival = b.off;
+  if (aArrival == bArrival) {
+    return (a.name > b.name)
+  }
+  return ((aArrival < bArrival) ? -1 : ((aArrival > bArrival) ? 1 : 0));
+}
+
+/**
+ * Argument to sort by Arrival
+ * @param {number} a element to be compared
+ * @param {number} b element to be compared
+ * @return {number}
+ */
+function SortByArrivalNameDesc(a, b){
+  var aArrival = a.off;
+  var bArrival = b.off;
+  if (aArrival == bArrival) {
+    return (a.name < b.name)
+  }
   return ((aArrival < bArrival) ? -1 : ((aArrival > bArrival) ? 1 : 0));
 }
 
@@ -156,7 +173,6 @@ function SortByArrivalAndExecution(a, b){
 function turnAround(arr, to) {
   var sum = 0;
   var jobs = arr.length;
-  console.log(jobs)
 
   for (var i = 0; i < arr.length; i++) {
     (arr[i].execution != 0)? sum = sum + arr[i].wait + arr[i].execution: jobs = jobs - 1;
@@ -232,6 +248,10 @@ function sjf(arr) {
   turnAround(arr3, 'Sjf');
 }
 
+function father(obj) {
+  return (obj.name == this && obj.aClass == 'hasChild');
+}
+
 function roundRobin(arr) {
   var quantum = parseInt($('#quantum').val());
   var over = parseInt($('#overload').val());
@@ -243,15 +263,18 @@ function roundRobin(arr) {
 
     if (arr[i].execution <= quantum) {
       arr[i].over = 0;
-      arr[i].aClass = '';
+      arr[i].aClass = (arr[i].aClass != undefined)? 'child': '';
     } else {
       exec = arr[i].execution - quantum;
       arr[i].execution = quantum + over;
       arr[i].over = over;
-      arr[i].aClass = 'hasChild';
-      arr.push({execution: exec, off: arr[i].off, distance: arr[i].distance, name: arr[i].name});
+      arr[i].aClass = (arr[i].aClass == undefined)? 'hasChild': 'child';
+      arr.push({execution: exec, off: arr[i].off + arr[i].execution, distance: arr[i].distance + arr[i].execution, name: arr[i].name, aClass: 'child'});
     }
   }
+
+  arr.sort(SortByArrival);
+
 
   var arr2 = [];
   for (var i = 0; i < arr.length; i++) {
@@ -261,12 +284,28 @@ function roundRobin(arr) {
       if (diff > arr[i].distance) arr[i].distance = diff;
       arr[i].wait = (arr[i].distance - arr[i].off);
       if (arr[i].wait < 0) arr[i].wait = 0;
-      if (i < fl) {
+
+      if (arr[i].aClass != 'child') {
         $('#rr').append(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i, arr[i].over, 'rr' + arr[i].name + ' ' + arr[i].aClass));
       } else {
         $('.rr' + arr[i].name).prepend(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i, arr[i].over, 'child'));
       }
-      if (arr[i].over == 0) arr2.push(arr[i]);
+
+      if (arr[i].over == 0) {
+        if (arr[i].aClass == 'child') {
+          var f = arr.find(father, arr[i].name);
+          arr[i].wait = arr[i].distance - f.off;
+          $('.rr' + arr[i].name + ' .child:first-child').removeClass (function (index, className) {
+              return (className.match (/(^|\s)off-\S+/g) || []).join(' ');
+          });
+          $('.rr' + arr[i].name + ' .child:first-child').removeClass (function (index, className) {
+              return (className.match (/(^|\s)wait-\S+/g) || []).join(' ');
+          });
+          $('.rr' + arr[i].name + ' .child:first-child').addClass('off-' + f.off);
+          $('.rr' + arr[i].name + ' .child:first-child').addClass('wait-' + (getInteger(arr[i].distance)));
+        }
+        arr2.push(arr[i]);
+      }
     }
   }
 
