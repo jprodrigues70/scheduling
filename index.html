@@ -9,6 +9,14 @@
     <section>
       <form id="job" class="center-form">
         <div class="container">
+          <div class="field-group-inline">
+            <label for="quantum">Quantum</label>
+            <input id="quantum" type="number" name="quantum" value="2">
+          </div>
+          <div class="field-group-inline">
+            <label for="overload">Overload</label>
+            <input id="overload" type="number" name="overload" value="1">
+          </div>
           <div class="job-info">
             <div class="field-group-inline">
               <label for="name-0">Processo</label>
@@ -48,6 +56,14 @@
         <dt id="turnAroundSjf"></dt>
       </dl>
     </section>
+    <section>
+      <dl id="rr">
+        <dt>
+          RR - (Round Robin)
+        </dt>
+        <dt id="turnAroundRr"></dt>
+      </dl>
+    </section>
   </body>
   <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="assets/js/scheduling.js"></script>
@@ -56,9 +72,11 @@
 
     $('#job').on('submit', function(event) {
       var arr = mountArray(event);
-  	  // var arr2 = mountArray(event);
+      var arr2 = mountArray(event);
+  	  var arr3 = mountArray(event);
       fifo(arr);
-	    sjf(arr);
+	    sjf(arr2);
+      roundRobin(arr3);
     })
   </script>
 </html>

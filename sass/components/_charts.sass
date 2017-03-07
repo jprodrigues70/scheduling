@@ -26,7 +26,7 @@ dt
   height: 40px
   background-color: white
   position: absolute
-  left: 0
+  left: -15px
   justify-content: flex-end
 
 .job
@@ -38,11 +38,57 @@ dt
   background: repeating-linear-gradient(to right, #ddd, #ddd 1px, #fff 0px, #fff 20px)
   background: -moz-repeating-linear-gradient(to right, #ddd, #ddd 1px, #fff 0px, #fff 20px)
   padding-left: 1px
+  position: relative
+
+  &.child:nth-child(even):before
+    background-color: transparent
+
+  &.child:nth-child(odd):before
+    background-color: transparent
+
+  &.hasChild:nth-child(odd):before
+    background-color: transparent
+
+  &.hasChild:nth-child(even):before
+    background-color: transparent
+
+  &:first-child:before
+    background-color: rgba(124, 177, 36, 0.34)!important
+
+  .child
+    margin: 0
+    position: absolute
+    left: 0
+    width: 100%
+    height: 100%
+    background: transparent
+
+    .text
+      display: none
+
+  .overload
+    content: ""
+    background-color: rgb(202, 60, 49)
+    height: 90%
+    top: 50%
+    transform: translateY(-50%)
+    transition: background-color 0.3s ease 0s
+    cursor: pointer
+    box-sizing: content-box
+    padding: 0px
+    margin: 0px
+    display: block
+    position: relative
+    width: 20px
+    z-index: 5
+    float: left
+    left: 0
 
   &:before
     content: ""
     float: left
     background-color: rgba(124, 177, 36, 0.34)
+    // background-color: transparent
     margin-bottom: 10px
     height: 90%
     position: relative
