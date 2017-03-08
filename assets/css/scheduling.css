@@ -1,0 +1,3013 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  font-family: "Fira Mono", monospace;
+  font-weight: lighter; }
+
+section {
+  padding: 50px 7%; }
+  section::after {
+    clear: both;
+    content: "";
+    display: block; }
+
+a {
+  text-decoration: none; }
+
+button {
+  cursor: pointer; }
+
+.inline {
+  display: inline-block !important; }
+
+dl {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  padding: 20px; }
+
+dd {
+  margin-left: 15px; }
+
+dt {
+  align-self: flex-start;
+  width: 100%;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 20px; }
+
+.text {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: white;
+  position: absolute;
+  left: -15px;
+  justify-content: flex-end; }
+
+.job {
+  font-size: 0.8em;
+  line-height: 1;
+  text-transform: uppercase;
+  width: 100%;
+  height: 40px;
+  background: repeating-linear-gradient(to right, #ddd, #ddd 1px, #fff 0px, #fff 20px);
+  background: -moz-repeating-linear-gradient(to right, #ddd, #ddd 1px, #fff 0px, #fff 20px);
+  padding-left: 1px;
+  position: relative; }
+  .job .child {
+    margin: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; }
+    .job .child .text {
+      display: none; }
+  .job .overload {
+    content: "";
+    background-color: #ca3c31;
+    height: 90%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.3s ease 0s;
+    cursor: pointer;
+    box-sizing: content-box;
+    padding: 0px;
+    margin: 0px;
+    display: block;
+    position: relative;
+    width: 20px;
+    z-index: 5;
+    float: left;
+    left: 0; }
+  .job:before {
+    content: "";
+    float: left;
+    background-color: rgba(124, 177, 36, 0.34);
+    margin-bottom: 10px;
+    height: 90%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    -webkit-box-sizing: content-box !important; }
+  .job:after {
+    content: "";
+    display: block;
+    background-color: #3178CA;
+    width: 50px;
+    margin-bottom: 10px;
+    height: 90%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    -webkit-box-sizing: content-box !important; }
+  .job:hover:after, .job:focus:after {
+    background-color: #aaa; }
+
+/** Execution time */
+.execution-0:after {
+  width: 0px; }
+
+.e-float-0:after {
+  padding-right: 0px; }
+
+/** Distance from zero */
+.distance-0:after {
+  left: 0px; }
+
+.d-float-0:after {
+  margin-left: 0px; }
+
+/** Waiting Time */
+.wait-0:before {
+  width: 0px; }
+
+.w-float-0:before {
+  padding-right: 0px; }
+
+/** Arrival time */
+.off-0:before {
+  margin-left: 0px; }
+
+.o-float-0:before {
+  left: 0px; }
+
+/** Execution time */
+.execution-1:after {
+  width: 20px; }
+
+.e-float-1:after {
+  padding-right: 0.2px; }
+
+/** Distance from zero */
+.distance-1:after {
+  left: 20px; }
+
+.d-float-1:after {
+  margin-left: 0.2px; }
+
+/** Waiting Time */
+.wait-1:before {
+  width: 20px; }
+
+.w-float-1:before {
+  padding-right: 0.2px; }
+
+/** Arrival time */
+.off-1:before {
+  margin-left: 20px; }
+
+.o-float-1:before {
+  left: 0.2px; }
+
+/** Execution time */
+.execution-2:after {
+  width: 40px; }
+
+.e-float-2:after {
+  padding-right: 0.4px; }
+
+/** Distance from zero */
+.distance-2:after {
+  left: 40px; }
+
+.d-float-2:after {
+  margin-left: 0.4px; }
+
+/** Waiting Time */
+.wait-2:before {
+  width: 40px; }
+
+.w-float-2:before {
+  padding-right: 0.4px; }
+
+/** Arrival time */
+.off-2:before {
+  margin-left: 40px; }
+
+.o-float-2:before {
+  left: 0.4px; }
+
+/** Execution time */
+.execution-3:after {
+  width: 60px; }
+
+.e-float-3:after {
+  padding-right: 0.6px; }
+
+/** Distance from zero */
+.distance-3:after {
+  left: 60px; }
+
+.d-float-3:after {
+  margin-left: 0.6px; }
+
+/** Waiting Time */
+.wait-3:before {
+  width: 60px; }
+
+.w-float-3:before {
+  padding-right: 0.6px; }
+
+/** Arrival time */
+.off-3:before {
+  margin-left: 60px; }
+
+.o-float-3:before {
+  left: 0.6px; }
+
+/** Execution time */
+.execution-4:after {
+  width: 80px; }
+
+.e-float-4:after {
+  padding-right: 0.8px; }
+
+/** Distance from zero */
+.distance-4:after {
+  left: 80px; }
+
+.d-float-4:after {
+  margin-left: 0.8px; }
+
+/** Waiting Time */
+.wait-4:before {
+  width: 80px; }
+
+.w-float-4:before {
+  padding-right: 0.8px; }
+
+/** Arrival time */
+.off-4:before {
+  margin-left: 80px; }
+
+.o-float-4:before {
+  left: 0.8px; }
+
+/** Execution time */
+.execution-5:after {
+  width: 100px; }
+
+.e-float-5:after {
+  padding-right: 1px; }
+
+/** Distance from zero */
+.distance-5:after {
+  left: 100px; }
+
+.d-float-5:after {
+  margin-left: 1px; }
+
+/** Waiting Time */
+.wait-5:before {
+  width: 100px; }
+
+.w-float-5:before {
+  padding-right: 1px; }
+
+/** Arrival time */
+.off-5:before {
+  margin-left: 100px; }
+
+.o-float-5:before {
+  left: 1px; }
+
+/** Execution time */
+.execution-6:after {
+  width: 120px; }
+
+.e-float-6:after {
+  padding-right: 1.2px; }
+
+/** Distance from zero */
+.distance-6:after {
+  left: 120px; }
+
+.d-float-6:after {
+  margin-left: 1.2px; }
+
+/** Waiting Time */
+.wait-6:before {
+  width: 120px; }
+
+.w-float-6:before {
+  padding-right: 1.2px; }
+
+/** Arrival time */
+.off-6:before {
+  margin-left: 120px; }
+
+.o-float-6:before {
+  left: 1.2px; }
+
+/** Execution time */
+.execution-7:after {
+  width: 140px; }
+
+.e-float-7:after {
+  padding-right: 1.4px; }
+
+/** Distance from zero */
+.distance-7:after {
+  left: 140px; }
+
+.d-float-7:after {
+  margin-left: 1.4px; }
+
+/** Waiting Time */
+.wait-7:before {
+  width: 140px; }
+
+.w-float-7:before {
+  padding-right: 1.4px; }
+
+/** Arrival time */
+.off-7:before {
+  margin-left: 140px; }
+
+.o-float-7:before {
+  left: 1.4px; }
+
+/** Execution time */
+.execution-8:after {
+  width: 160px; }
+
+.e-float-8:after {
+  padding-right: 1.6px; }
+
+/** Distance from zero */
+.distance-8:after {
+  left: 160px; }
+
+.d-float-8:after {
+  margin-left: 1.6px; }
+
+/** Waiting Time */
+.wait-8:before {
+  width: 160px; }
+
+.w-float-8:before {
+  padding-right: 1.6px; }
+
+/** Arrival time */
+.off-8:before {
+  margin-left: 160px; }
+
+.o-float-8:before {
+  left: 1.6px; }
+
+/** Execution time */
+.execution-9:after {
+  width: 180px; }
+
+.e-float-9:after {
+  padding-right: 1.8px; }
+
+/** Distance from zero */
+.distance-9:after {
+  left: 180px; }
+
+.d-float-9:after {
+  margin-left: 1.8px; }
+
+/** Waiting Time */
+.wait-9:before {
+  width: 180px; }
+
+.w-float-9:before {
+  padding-right: 1.8px; }
+
+/** Arrival time */
+.off-9:before {
+  margin-left: 180px; }
+
+.o-float-9:before {
+  left: 1.8px; }
+
+/** Execution time */
+.execution-10:after {
+  width: 200px; }
+
+.e-float-10:after {
+  padding-right: 2px; }
+
+/** Distance from zero */
+.distance-10:after {
+  left: 200px; }
+
+.d-float-10:after {
+  margin-left: 2px; }
+
+/** Waiting Time */
+.wait-10:before {
+  width: 200px; }
+
+.w-float-10:before {
+  padding-right: 2px; }
+
+/** Arrival time */
+.off-10:before {
+  margin-left: 200px; }
+
+.o-float-10:before {
+  left: 2px; }
+
+/** Execution time */
+.execution-11:after {
+  width: 220px; }
+
+.e-float-11:after {
+  padding-right: 2.2px; }
+
+/** Distance from zero */
+.distance-11:after {
+  left: 220px; }
+
+.d-float-11:after {
+  margin-left: 2.2px; }
+
+/** Waiting Time */
+.wait-11:before {
+  width: 220px; }
+
+.w-float-11:before {
+  padding-right: 2.2px; }
+
+/** Arrival time */
+.off-11:before {
+  margin-left: 220px; }
+
+.o-float-11:before {
+  left: 2.2px; }
+
+/** Execution time */
+.execution-12:after {
+  width: 240px; }
+
+.e-float-12:after {
+  padding-right: 2.4px; }
+
+/** Distance from zero */
+.distance-12:after {
+  left: 240px; }
+
+.d-float-12:after {
+  margin-left: 2.4px; }
+
+/** Waiting Time */
+.wait-12:before {
+  width: 240px; }
+
+.w-float-12:before {
+  padding-right: 2.4px; }
+
+/** Arrival time */
+.off-12:before {
+  margin-left: 240px; }
+
+.o-float-12:before {
+  left: 2.4px; }
+
+/** Execution time */
+.execution-13:after {
+  width: 260px; }
+
+.e-float-13:after {
+  padding-right: 2.6px; }
+
+/** Distance from zero */
+.distance-13:after {
+  left: 260px; }
+
+.d-float-13:after {
+  margin-left: 2.6px; }
+
+/** Waiting Time */
+.wait-13:before {
+  width: 260px; }
+
+.w-float-13:before {
+  padding-right: 2.6px; }
+
+/** Arrival time */
+.off-13:before {
+  margin-left: 260px; }
+
+.o-float-13:before {
+  left: 2.6px; }
+
+/** Execution time */
+.execution-14:after {
+  width: 280px; }
+
+.e-float-14:after {
+  padding-right: 2.8px; }
+
+/** Distance from zero */
+.distance-14:after {
+  left: 280px; }
+
+.d-float-14:after {
+  margin-left: 2.8px; }
+
+/** Waiting Time */
+.wait-14:before {
+  width: 280px; }
+
+.w-float-14:before {
+  padding-right: 2.8px; }
+
+/** Arrival time */
+.off-14:before {
+  margin-left: 280px; }
+
+.o-float-14:before {
+  left: 2.8px; }
+
+/** Execution time */
+.execution-15:after {
+  width: 300px; }
+
+.e-float-15:after {
+  padding-right: 3px; }
+
+/** Distance from zero */
+.distance-15:after {
+  left: 300px; }
+
+.d-float-15:after {
+  margin-left: 3px; }
+
+/** Waiting Time */
+.wait-15:before {
+  width: 300px; }
+
+.w-float-15:before {
+  padding-right: 3px; }
+
+/** Arrival time */
+.off-15:before {
+  margin-left: 300px; }
+
+.o-float-15:before {
+  left: 3px; }
+
+/** Execution time */
+.execution-16:after {
+  width: 320px; }
+
+.e-float-16:after {
+  padding-right: 3.2px; }
+
+/** Distance from zero */
+.distance-16:after {
+  left: 320px; }
+
+.d-float-16:after {
+  margin-left: 3.2px; }
+
+/** Waiting Time */
+.wait-16:before {
+  width: 320px; }
+
+.w-float-16:before {
+  padding-right: 3.2px; }
+
+/** Arrival time */
+.off-16:before {
+  margin-left: 320px; }
+
+.o-float-16:before {
+  left: 3.2px; }
+
+/** Execution time */
+.execution-17:after {
+  width: 340px; }
+
+.e-float-17:after {
+  padding-right: 3.4px; }
+
+/** Distance from zero */
+.distance-17:after {
+  left: 340px; }
+
+.d-float-17:after {
+  margin-left: 3.4px; }
+
+/** Waiting Time */
+.wait-17:before {
+  width: 340px; }
+
+.w-float-17:before {
+  padding-right: 3.4px; }
+
+/** Arrival time */
+.off-17:before {
+  margin-left: 340px; }
+
+.o-float-17:before {
+  left: 3.4px; }
+
+/** Execution time */
+.execution-18:after {
+  width: 360px; }
+
+.e-float-18:after {
+  padding-right: 3.6px; }
+
+/** Distance from zero */
+.distance-18:after {
+  left: 360px; }
+
+.d-float-18:after {
+  margin-left: 3.6px; }
+
+/** Waiting Time */
+.wait-18:before {
+  width: 360px; }
+
+.w-float-18:before {
+  padding-right: 3.6px; }
+
+/** Arrival time */
+.off-18:before {
+  margin-left: 360px; }
+
+.o-float-18:before {
+  left: 3.6px; }
+
+/** Execution time */
+.execution-19:after {
+  width: 380px; }
+
+.e-float-19:after {
+  padding-right: 3.8px; }
+
+/** Distance from zero */
+.distance-19:after {
+  left: 380px; }
+
+.d-float-19:after {
+  margin-left: 3.8px; }
+
+/** Waiting Time */
+.wait-19:before {
+  width: 380px; }
+
+.w-float-19:before {
+  padding-right: 3.8px; }
+
+/** Arrival time */
+.off-19:before {
+  margin-left: 380px; }
+
+.o-float-19:before {
+  left: 3.8px; }
+
+/** Execution time */
+.execution-20:after {
+  width: 400px; }
+
+.e-float-20:after {
+  padding-right: 4px; }
+
+/** Distance from zero */
+.distance-20:after {
+  left: 400px; }
+
+.d-float-20:after {
+  margin-left: 4px; }
+
+/** Waiting Time */
+.wait-20:before {
+  width: 400px; }
+
+.w-float-20:before {
+  padding-right: 4px; }
+
+/** Arrival time */
+.off-20:before {
+  margin-left: 400px; }
+
+.o-float-20:before {
+  left: 4px; }
+
+/** Execution time */
+.execution-21:after {
+  width: 420px; }
+
+.e-float-21:after {
+  padding-right: 4.2px; }
+
+/** Distance from zero */
+.distance-21:after {
+  left: 420px; }
+
+.d-float-21:after {
+  margin-left: 4.2px; }
+
+/** Waiting Time */
+.wait-21:before {
+  width: 420px; }
+
+.w-float-21:before {
+  padding-right: 4.2px; }
+
+/** Arrival time */
+.off-21:before {
+  margin-left: 420px; }
+
+.o-float-21:before {
+  left: 4.2px; }
+
+/** Execution time */
+.execution-22:after {
+  width: 440px; }
+
+.e-float-22:after {
+  padding-right: 4.4px; }
+
+/** Distance from zero */
+.distance-22:after {
+  left: 440px; }
+
+.d-float-22:after {
+  margin-left: 4.4px; }
+
+/** Waiting Time */
+.wait-22:before {
+  width: 440px; }
+
+.w-float-22:before {
+  padding-right: 4.4px; }
+
+/** Arrival time */
+.off-22:before {
+  margin-left: 440px; }
+
+.o-float-22:before {
+  left: 4.4px; }
+
+/** Execution time */
+.execution-23:after {
+  width: 460px; }
+
+.e-float-23:after {
+  padding-right: 4.6px; }
+
+/** Distance from zero */
+.distance-23:after {
+  left: 460px; }
+
+.d-float-23:after {
+  margin-left: 4.6px; }
+
+/** Waiting Time */
+.wait-23:before {
+  width: 460px; }
+
+.w-float-23:before {
+  padding-right: 4.6px; }
+
+/** Arrival time */
+.off-23:before {
+  margin-left: 460px; }
+
+.o-float-23:before {
+  left: 4.6px; }
+
+/** Execution time */
+.execution-24:after {
+  width: 480px; }
+
+.e-float-24:after {
+  padding-right: 4.8px; }
+
+/** Distance from zero */
+.distance-24:after {
+  left: 480px; }
+
+.d-float-24:after {
+  margin-left: 4.8px; }
+
+/** Waiting Time */
+.wait-24:before {
+  width: 480px; }
+
+.w-float-24:before {
+  padding-right: 4.8px; }
+
+/** Arrival time */
+.off-24:before {
+  margin-left: 480px; }
+
+.o-float-24:before {
+  left: 4.8px; }
+
+/** Execution time */
+.execution-25:after {
+  width: 500px; }
+
+.e-float-25:after {
+  padding-right: 5px; }
+
+/** Distance from zero */
+.distance-25:after {
+  left: 500px; }
+
+.d-float-25:after {
+  margin-left: 5px; }
+
+/** Waiting Time */
+.wait-25:before {
+  width: 500px; }
+
+.w-float-25:before {
+  padding-right: 5px; }
+
+/** Arrival time */
+.off-25:before {
+  margin-left: 500px; }
+
+.o-float-25:before {
+  left: 5px; }
+
+/** Execution time */
+.execution-26:after {
+  width: 520px; }
+
+.e-float-26:after {
+  padding-right: 5.2px; }
+
+/** Distance from zero */
+.distance-26:after {
+  left: 520px; }
+
+.d-float-26:after {
+  margin-left: 5.2px; }
+
+/** Waiting Time */
+.wait-26:before {
+  width: 520px; }
+
+.w-float-26:before {
+  padding-right: 5.2px; }
+
+/** Arrival time */
+.off-26:before {
+  margin-left: 520px; }
+
+.o-float-26:before {
+  left: 5.2px; }
+
+/** Execution time */
+.execution-27:after {
+  width: 540px; }
+
+.e-float-27:after {
+  padding-right: 5.4px; }
+
+/** Distance from zero */
+.distance-27:after {
+  left: 540px; }
+
+.d-float-27:after {
+  margin-left: 5.4px; }
+
+/** Waiting Time */
+.wait-27:before {
+  width: 540px; }
+
+.w-float-27:before {
+  padding-right: 5.4px; }
+
+/** Arrival time */
+.off-27:before {
+  margin-left: 540px; }
+
+.o-float-27:before {
+  left: 5.4px; }
+
+/** Execution time */
+.execution-28:after {
+  width: 560px; }
+
+.e-float-28:after {
+  padding-right: 5.6px; }
+
+/** Distance from zero */
+.distance-28:after {
+  left: 560px; }
+
+.d-float-28:after {
+  margin-left: 5.6px; }
+
+/** Waiting Time */
+.wait-28:before {
+  width: 560px; }
+
+.w-float-28:before {
+  padding-right: 5.6px; }
+
+/** Arrival time */
+.off-28:before {
+  margin-left: 560px; }
+
+.o-float-28:before {
+  left: 5.6px; }
+
+/** Execution time */
+.execution-29:after {
+  width: 580px; }
+
+.e-float-29:after {
+  padding-right: 5.8px; }
+
+/** Distance from zero */
+.distance-29:after {
+  left: 580px; }
+
+.d-float-29:after {
+  margin-left: 5.8px; }
+
+/** Waiting Time */
+.wait-29:before {
+  width: 580px; }
+
+.w-float-29:before {
+  padding-right: 5.8px; }
+
+/** Arrival time */
+.off-29:before {
+  margin-left: 580px; }
+
+.o-float-29:before {
+  left: 5.8px; }
+
+/** Execution time */
+.execution-30:after {
+  width: 600px; }
+
+.e-float-30:after {
+  padding-right: 6px; }
+
+/** Distance from zero */
+.distance-30:after {
+  left: 600px; }
+
+.d-float-30:after {
+  margin-left: 6px; }
+
+/** Waiting Time */
+.wait-30:before {
+  width: 600px; }
+
+.w-float-30:before {
+  padding-right: 6px; }
+
+/** Arrival time */
+.off-30:before {
+  margin-left: 600px; }
+
+.o-float-30:before {
+  left: 6px; }
+
+/** Execution time */
+.execution-31:after {
+  width: 620px; }
+
+.e-float-31:after {
+  padding-right: 6.2px; }
+
+/** Distance from zero */
+.distance-31:after {
+  left: 620px; }
+
+.d-float-31:after {
+  margin-left: 6.2px; }
+
+/** Waiting Time */
+.wait-31:before {
+  width: 620px; }
+
+.w-float-31:before {
+  padding-right: 6.2px; }
+
+/** Arrival time */
+.off-31:before {
+  margin-left: 620px; }
+
+.o-float-31:before {
+  left: 6.2px; }
+
+/** Execution time */
+.execution-32:after {
+  width: 640px; }
+
+.e-float-32:after {
+  padding-right: 6.4px; }
+
+/** Distance from zero */
+.distance-32:after {
+  left: 640px; }
+
+.d-float-32:after {
+  margin-left: 6.4px; }
+
+/** Waiting Time */
+.wait-32:before {
+  width: 640px; }
+
+.w-float-32:before {
+  padding-right: 6.4px; }
+
+/** Arrival time */
+.off-32:before {
+  margin-left: 640px; }
+
+.o-float-32:before {
+  left: 6.4px; }
+
+/** Execution time */
+.execution-33:after {
+  width: 660px; }
+
+.e-float-33:after {
+  padding-right: 6.6px; }
+
+/** Distance from zero */
+.distance-33:after {
+  left: 660px; }
+
+.d-float-33:after {
+  margin-left: 6.6px; }
+
+/** Waiting Time */
+.wait-33:before {
+  width: 660px; }
+
+.w-float-33:before {
+  padding-right: 6.6px; }
+
+/** Arrival time */
+.off-33:before {
+  margin-left: 660px; }
+
+.o-float-33:before {
+  left: 6.6px; }
+
+/** Execution time */
+.execution-34:after {
+  width: 680px; }
+
+.e-float-34:after {
+  padding-right: 6.8px; }
+
+/** Distance from zero */
+.distance-34:after {
+  left: 680px; }
+
+.d-float-34:after {
+  margin-left: 6.8px; }
+
+/** Waiting Time */
+.wait-34:before {
+  width: 680px; }
+
+.w-float-34:before {
+  padding-right: 6.8px; }
+
+/** Arrival time */
+.off-34:before {
+  margin-left: 680px; }
+
+.o-float-34:before {
+  left: 6.8px; }
+
+/** Execution time */
+.execution-35:after {
+  width: 700px; }
+
+.e-float-35:after {
+  padding-right: 7px; }
+
+/** Distance from zero */
+.distance-35:after {
+  left: 700px; }
+
+.d-float-35:after {
+  margin-left: 7px; }
+
+/** Waiting Time */
+.wait-35:before {
+  width: 700px; }
+
+.w-float-35:before {
+  padding-right: 7px; }
+
+/** Arrival time */
+.off-35:before {
+  margin-left: 700px; }
+
+.o-float-35:before {
+  left: 7px; }
+
+/** Execution time */
+.execution-36:after {
+  width: 720px; }
+
+.e-float-36:after {
+  padding-right: 7.2px; }
+
+/** Distance from zero */
+.distance-36:after {
+  left: 720px; }
+
+.d-float-36:after {
+  margin-left: 7.2px; }
+
+/** Waiting Time */
+.wait-36:before {
+  width: 720px; }
+
+.w-float-36:before {
+  padding-right: 7.2px; }
+
+/** Arrival time */
+.off-36:before {
+  margin-left: 720px; }
+
+.o-float-36:before {
+  left: 7.2px; }
+
+/** Execution time */
+.execution-37:after {
+  width: 740px; }
+
+.e-float-37:after {
+  padding-right: 7.4px; }
+
+/** Distance from zero */
+.distance-37:after {
+  left: 740px; }
+
+.d-float-37:after {
+  margin-left: 7.4px; }
+
+/** Waiting Time */
+.wait-37:before {
+  width: 740px; }
+
+.w-float-37:before {
+  padding-right: 7.4px; }
+
+/** Arrival time */
+.off-37:before {
+  margin-left: 740px; }
+
+.o-float-37:before {
+  left: 7.4px; }
+
+/** Execution time */
+.execution-38:after {
+  width: 760px; }
+
+.e-float-38:after {
+  padding-right: 7.6px; }
+
+/** Distance from zero */
+.distance-38:after {
+  left: 760px; }
+
+.d-float-38:after {
+  margin-left: 7.6px; }
+
+/** Waiting Time */
+.wait-38:before {
+  width: 760px; }
+
+.w-float-38:before {
+  padding-right: 7.6px; }
+
+/** Arrival time */
+.off-38:before {
+  margin-left: 760px; }
+
+.o-float-38:before {
+  left: 7.6px; }
+
+/** Execution time */
+.execution-39:after {
+  width: 780px; }
+
+.e-float-39:after {
+  padding-right: 7.8px; }
+
+/** Distance from zero */
+.distance-39:after {
+  left: 780px; }
+
+.d-float-39:after {
+  margin-left: 7.8px; }
+
+/** Waiting Time */
+.wait-39:before {
+  width: 780px; }
+
+.w-float-39:before {
+  padding-right: 7.8px; }
+
+/** Arrival time */
+.off-39:before {
+  margin-left: 780px; }
+
+.o-float-39:before {
+  left: 7.8px; }
+
+/** Execution time */
+.execution-40:after {
+  width: 800px; }
+
+.e-float-40:after {
+  padding-right: 8px; }
+
+/** Distance from zero */
+.distance-40:after {
+  left: 800px; }
+
+.d-float-40:after {
+  margin-left: 8px; }
+
+/** Waiting Time */
+.wait-40:before {
+  width: 800px; }
+
+.w-float-40:before {
+  padding-right: 8px; }
+
+/** Arrival time */
+.off-40:before {
+  margin-left: 800px; }
+
+.o-float-40:before {
+  left: 8px; }
+
+/** Execution time */
+.execution-41:after {
+  width: 820px; }
+
+.e-float-41:after {
+  padding-right: 8.2px; }
+
+/** Distance from zero */
+.distance-41:after {
+  left: 820px; }
+
+.d-float-41:after {
+  margin-left: 8.2px; }
+
+/** Waiting Time */
+.wait-41:before {
+  width: 820px; }
+
+.w-float-41:before {
+  padding-right: 8.2px; }
+
+/** Arrival time */
+.off-41:before {
+  margin-left: 820px; }
+
+.o-float-41:before {
+  left: 8.2px; }
+
+/** Execution time */
+.execution-42:after {
+  width: 840px; }
+
+.e-float-42:after {
+  padding-right: 8.4px; }
+
+/** Distance from zero */
+.distance-42:after {
+  left: 840px; }
+
+.d-float-42:after {
+  margin-left: 8.4px; }
+
+/** Waiting Time */
+.wait-42:before {
+  width: 840px; }
+
+.w-float-42:before {
+  padding-right: 8.4px; }
+
+/** Arrival time */
+.off-42:before {
+  margin-left: 840px; }
+
+.o-float-42:before {
+  left: 8.4px; }
+
+/** Execution time */
+.execution-43:after {
+  width: 860px; }
+
+.e-float-43:after {
+  padding-right: 8.6px; }
+
+/** Distance from zero */
+.distance-43:after {
+  left: 860px; }
+
+.d-float-43:after {
+  margin-left: 8.6px; }
+
+/** Waiting Time */
+.wait-43:before {
+  width: 860px; }
+
+.w-float-43:before {
+  padding-right: 8.6px; }
+
+/** Arrival time */
+.off-43:before {
+  margin-left: 860px; }
+
+.o-float-43:before {
+  left: 8.6px; }
+
+/** Execution time */
+.execution-44:after {
+  width: 880px; }
+
+.e-float-44:after {
+  padding-right: 8.8px; }
+
+/** Distance from zero */
+.distance-44:after {
+  left: 880px; }
+
+.d-float-44:after {
+  margin-left: 8.8px; }
+
+/** Waiting Time */
+.wait-44:before {
+  width: 880px; }
+
+.w-float-44:before {
+  padding-right: 8.8px; }
+
+/** Arrival time */
+.off-44:before {
+  margin-left: 880px; }
+
+.o-float-44:before {
+  left: 8.8px; }
+
+/** Execution time */
+.execution-45:after {
+  width: 900px; }
+
+.e-float-45:after {
+  padding-right: 9px; }
+
+/** Distance from zero */
+.distance-45:after {
+  left: 900px; }
+
+.d-float-45:after {
+  margin-left: 9px; }
+
+/** Waiting Time */
+.wait-45:before {
+  width: 900px; }
+
+.w-float-45:before {
+  padding-right: 9px; }
+
+/** Arrival time */
+.off-45:before {
+  margin-left: 900px; }
+
+.o-float-45:before {
+  left: 9px; }
+
+/** Execution time */
+.execution-46:after {
+  width: 920px; }
+
+.e-float-46:after {
+  padding-right: 9.2px; }
+
+/** Distance from zero */
+.distance-46:after {
+  left: 920px; }
+
+.d-float-46:after {
+  margin-left: 9.2px; }
+
+/** Waiting Time */
+.wait-46:before {
+  width: 920px; }
+
+.w-float-46:before {
+  padding-right: 9.2px; }
+
+/** Arrival time */
+.off-46:before {
+  margin-left: 920px; }
+
+.o-float-46:before {
+  left: 9.2px; }
+
+/** Execution time */
+.execution-47:after {
+  width: 940px; }
+
+.e-float-47:after {
+  padding-right: 9.4px; }
+
+/** Distance from zero */
+.distance-47:after {
+  left: 940px; }
+
+.d-float-47:after {
+  margin-left: 9.4px; }
+
+/** Waiting Time */
+.wait-47:before {
+  width: 940px; }
+
+.w-float-47:before {
+  padding-right: 9.4px; }
+
+/** Arrival time */
+.off-47:before {
+  margin-left: 940px; }
+
+.o-float-47:before {
+  left: 9.4px; }
+
+/** Execution time */
+.execution-48:after {
+  width: 960px; }
+
+.e-float-48:after {
+  padding-right: 9.6px; }
+
+/** Distance from zero */
+.distance-48:after {
+  left: 960px; }
+
+.d-float-48:after {
+  margin-left: 9.6px; }
+
+/** Waiting Time */
+.wait-48:before {
+  width: 960px; }
+
+.w-float-48:before {
+  padding-right: 9.6px; }
+
+/** Arrival time */
+.off-48:before {
+  margin-left: 960px; }
+
+.o-float-48:before {
+  left: 9.6px; }
+
+/** Execution time */
+.execution-49:after {
+  width: 980px; }
+
+.e-float-49:after {
+  padding-right: 9.8px; }
+
+/** Distance from zero */
+.distance-49:after {
+  left: 980px; }
+
+.d-float-49:after {
+  margin-left: 9.8px; }
+
+/** Waiting Time */
+.wait-49:before {
+  width: 980px; }
+
+.w-float-49:before {
+  padding-right: 9.8px; }
+
+/** Arrival time */
+.off-49:before {
+  margin-left: 980px; }
+
+.o-float-49:before {
+  left: 9.8px; }
+
+/** Execution time */
+.execution-50:after {
+  width: 1000px; }
+
+.e-float-50:after {
+  padding-right: 10px; }
+
+/** Distance from zero */
+.distance-50:after {
+  left: 1000px; }
+
+.d-float-50:after {
+  margin-left: 10px; }
+
+/** Waiting Time */
+.wait-50:before {
+  width: 1000px; }
+
+.w-float-50:before {
+  padding-right: 10px; }
+
+/** Arrival time */
+.off-50:before {
+  margin-left: 1000px; }
+
+.o-float-50:before {
+  left: 10px; }
+
+/** Execution time */
+.execution-51:after {
+  width: 1020px; }
+
+.e-float-51:after {
+  padding-right: 10.2px; }
+
+/** Distance from zero */
+.distance-51:after {
+  left: 1020px; }
+
+.d-float-51:after {
+  margin-left: 10.2px; }
+
+/** Waiting Time */
+.wait-51:before {
+  width: 1020px; }
+
+.w-float-51:before {
+  padding-right: 10.2px; }
+
+/** Arrival time */
+.off-51:before {
+  margin-left: 1020px; }
+
+.o-float-51:before {
+  left: 10.2px; }
+
+/** Execution time */
+.execution-52:after {
+  width: 1040px; }
+
+.e-float-52:after {
+  padding-right: 10.4px; }
+
+/** Distance from zero */
+.distance-52:after {
+  left: 1040px; }
+
+.d-float-52:after {
+  margin-left: 10.4px; }
+
+/** Waiting Time */
+.wait-52:before {
+  width: 1040px; }
+
+.w-float-52:before {
+  padding-right: 10.4px; }
+
+/** Arrival time */
+.off-52:before {
+  margin-left: 1040px; }
+
+.o-float-52:before {
+  left: 10.4px; }
+
+/** Execution time */
+.execution-53:after {
+  width: 1060px; }
+
+.e-float-53:after {
+  padding-right: 10.6px; }
+
+/** Distance from zero */
+.distance-53:after {
+  left: 1060px; }
+
+.d-float-53:after {
+  margin-left: 10.6px; }
+
+/** Waiting Time */
+.wait-53:before {
+  width: 1060px; }
+
+.w-float-53:before {
+  padding-right: 10.6px; }
+
+/** Arrival time */
+.off-53:before {
+  margin-left: 1060px; }
+
+.o-float-53:before {
+  left: 10.6px; }
+
+/** Execution time */
+.execution-54:after {
+  width: 1080px; }
+
+.e-float-54:after {
+  padding-right: 10.8px; }
+
+/** Distance from zero */
+.distance-54:after {
+  left: 1080px; }
+
+.d-float-54:after {
+  margin-left: 10.8px; }
+
+/** Waiting Time */
+.wait-54:before {
+  width: 1080px; }
+
+.w-float-54:before {
+  padding-right: 10.8px; }
+
+/** Arrival time */
+.off-54:before {
+  margin-left: 1080px; }
+
+.o-float-54:before {
+  left: 10.8px; }
+
+/** Execution time */
+.execution-55:after {
+  width: 1100px; }
+
+.e-float-55:after {
+  padding-right: 11px; }
+
+/** Distance from zero */
+.distance-55:after {
+  left: 1100px; }
+
+.d-float-55:after {
+  margin-left: 11px; }
+
+/** Waiting Time */
+.wait-55:before {
+  width: 1100px; }
+
+.w-float-55:before {
+  padding-right: 11px; }
+
+/** Arrival time */
+.off-55:before {
+  margin-left: 1100px; }
+
+.o-float-55:before {
+  left: 11px; }
+
+/** Execution time */
+.execution-56:after {
+  width: 1120px; }
+
+.e-float-56:after {
+  padding-right: 11.2px; }
+
+/** Distance from zero */
+.distance-56:after {
+  left: 1120px; }
+
+.d-float-56:after {
+  margin-left: 11.2px; }
+
+/** Waiting Time */
+.wait-56:before {
+  width: 1120px; }
+
+.w-float-56:before {
+  padding-right: 11.2px; }
+
+/** Arrival time */
+.off-56:before {
+  margin-left: 1120px; }
+
+.o-float-56:before {
+  left: 11.2px; }
+
+/** Execution time */
+.execution-57:after {
+  width: 1140px; }
+
+.e-float-57:after {
+  padding-right: 11.4px; }
+
+/** Distance from zero */
+.distance-57:after {
+  left: 1140px; }
+
+.d-float-57:after {
+  margin-left: 11.4px; }
+
+/** Waiting Time */
+.wait-57:before {
+  width: 1140px; }
+
+.w-float-57:before {
+  padding-right: 11.4px; }
+
+/** Arrival time */
+.off-57:before {
+  margin-left: 1140px; }
+
+.o-float-57:before {
+  left: 11.4px; }
+
+/** Execution time */
+.execution-58:after {
+  width: 1160px; }
+
+.e-float-58:after {
+  padding-right: 11.6px; }
+
+/** Distance from zero */
+.distance-58:after {
+  left: 1160px; }
+
+.d-float-58:after {
+  margin-left: 11.6px; }
+
+/** Waiting Time */
+.wait-58:before {
+  width: 1160px; }
+
+.w-float-58:before {
+  padding-right: 11.6px; }
+
+/** Arrival time */
+.off-58:before {
+  margin-left: 1160px; }
+
+.o-float-58:before {
+  left: 11.6px; }
+
+/** Execution time */
+.execution-59:after {
+  width: 1180px; }
+
+.e-float-59:after {
+  padding-right: 11.8px; }
+
+/** Distance from zero */
+.distance-59:after {
+  left: 1180px; }
+
+.d-float-59:after {
+  margin-left: 11.8px; }
+
+/** Waiting Time */
+.wait-59:before {
+  width: 1180px; }
+
+.w-float-59:before {
+  padding-right: 11.8px; }
+
+/** Arrival time */
+.off-59:before {
+  margin-left: 1180px; }
+
+.o-float-59:before {
+  left: 11.8px; }
+
+/** Execution time */
+.execution-60:after {
+  width: 1200px; }
+
+.e-float-60:after {
+  padding-right: 12px; }
+
+/** Distance from zero */
+.distance-60:after {
+  left: 1200px; }
+
+.d-float-60:after {
+  margin-left: 12px; }
+
+/** Waiting Time */
+.wait-60:before {
+  width: 1200px; }
+
+.w-float-60:before {
+  padding-right: 12px; }
+
+/** Arrival time */
+.off-60:before {
+  margin-left: 1200px; }
+
+.o-float-60:before {
+  left: 12px; }
+
+/** Execution time */
+.execution-61:after {
+  width: 1220px; }
+
+.e-float-61:after {
+  padding-right: 12.2px; }
+
+/** Distance from zero */
+.distance-61:after {
+  left: 1220px; }
+
+.d-float-61:after {
+  margin-left: 12.2px; }
+
+/** Waiting Time */
+.wait-61:before {
+  width: 1220px; }
+
+.w-float-61:before {
+  padding-right: 12.2px; }
+
+/** Arrival time */
+.off-61:before {
+  margin-left: 1220px; }
+
+.o-float-61:before {
+  left: 12.2px; }
+
+/** Execution time */
+.execution-62:after {
+  width: 1240px; }
+
+.e-float-62:after {
+  padding-right: 12.4px; }
+
+/** Distance from zero */
+.distance-62:after {
+  left: 1240px; }
+
+.d-float-62:after {
+  margin-left: 12.4px; }
+
+/** Waiting Time */
+.wait-62:before {
+  width: 1240px; }
+
+.w-float-62:before {
+  padding-right: 12.4px; }
+
+/** Arrival time */
+.off-62:before {
+  margin-left: 1240px; }
+
+.o-float-62:before {
+  left: 12.4px; }
+
+/** Execution time */
+.execution-63:after {
+  width: 1260px; }
+
+.e-float-63:after {
+  padding-right: 12.6px; }
+
+/** Distance from zero */
+.distance-63:after {
+  left: 1260px; }
+
+.d-float-63:after {
+  margin-left: 12.6px; }
+
+/** Waiting Time */
+.wait-63:before {
+  width: 1260px; }
+
+.w-float-63:before {
+  padding-right: 12.6px; }
+
+/** Arrival time */
+.off-63:before {
+  margin-left: 1260px; }
+
+.o-float-63:before {
+  left: 12.6px; }
+
+/** Execution time */
+.execution-64:after {
+  width: 1280px; }
+
+.e-float-64:after {
+  padding-right: 12.8px; }
+
+/** Distance from zero */
+.distance-64:after {
+  left: 1280px; }
+
+.d-float-64:after {
+  margin-left: 12.8px; }
+
+/** Waiting Time */
+.wait-64:before {
+  width: 1280px; }
+
+.w-float-64:before {
+  padding-right: 12.8px; }
+
+/** Arrival time */
+.off-64:before {
+  margin-left: 1280px; }
+
+.o-float-64:before {
+  left: 12.8px; }
+
+/** Execution time */
+.execution-65:after {
+  width: 1300px; }
+
+.e-float-65:after {
+  padding-right: 13px; }
+
+/** Distance from zero */
+.distance-65:after {
+  left: 1300px; }
+
+.d-float-65:after {
+  margin-left: 13px; }
+
+/** Waiting Time */
+.wait-65:before {
+  width: 1300px; }
+
+.w-float-65:before {
+  padding-right: 13px; }
+
+/** Arrival time */
+.off-65:before {
+  margin-left: 1300px; }
+
+.o-float-65:before {
+  left: 13px; }
+
+/** Execution time */
+.execution-66:after {
+  width: 1320px; }
+
+.e-float-66:after {
+  padding-right: 13.2px; }
+
+/** Distance from zero */
+.distance-66:after {
+  left: 1320px; }
+
+.d-float-66:after {
+  margin-left: 13.2px; }
+
+/** Waiting Time */
+.wait-66:before {
+  width: 1320px; }
+
+.w-float-66:before {
+  padding-right: 13.2px; }
+
+/** Arrival time */
+.off-66:before {
+  margin-left: 1320px; }
+
+.o-float-66:before {
+  left: 13.2px; }
+
+/** Execution time */
+.execution-67:after {
+  width: 1340px; }
+
+.e-float-67:after {
+  padding-right: 13.4px; }
+
+/** Distance from zero */
+.distance-67:after {
+  left: 1340px; }
+
+.d-float-67:after {
+  margin-left: 13.4px; }
+
+/** Waiting Time */
+.wait-67:before {
+  width: 1340px; }
+
+.w-float-67:before {
+  padding-right: 13.4px; }
+
+/** Arrival time */
+.off-67:before {
+  margin-left: 1340px; }
+
+.o-float-67:before {
+  left: 13.4px; }
+
+/** Execution time */
+.execution-68:after {
+  width: 1360px; }
+
+.e-float-68:after {
+  padding-right: 13.6px; }
+
+/** Distance from zero */
+.distance-68:after {
+  left: 1360px; }
+
+.d-float-68:after {
+  margin-left: 13.6px; }
+
+/** Waiting Time */
+.wait-68:before {
+  width: 1360px; }
+
+.w-float-68:before {
+  padding-right: 13.6px; }
+
+/** Arrival time */
+.off-68:before {
+  margin-left: 1360px; }
+
+.o-float-68:before {
+  left: 13.6px; }
+
+/** Execution time */
+.execution-69:after {
+  width: 1380px; }
+
+.e-float-69:after {
+  padding-right: 13.8px; }
+
+/** Distance from zero */
+.distance-69:after {
+  left: 1380px; }
+
+.d-float-69:after {
+  margin-left: 13.8px; }
+
+/** Waiting Time */
+.wait-69:before {
+  width: 1380px; }
+
+.w-float-69:before {
+  padding-right: 13.8px; }
+
+/** Arrival time */
+.off-69:before {
+  margin-left: 1380px; }
+
+.o-float-69:before {
+  left: 13.8px; }
+
+/** Execution time */
+.execution-70:after {
+  width: 1400px; }
+
+.e-float-70:after {
+  padding-right: 14px; }
+
+/** Distance from zero */
+.distance-70:after {
+  left: 1400px; }
+
+.d-float-70:after {
+  margin-left: 14px; }
+
+/** Waiting Time */
+.wait-70:before {
+  width: 1400px; }
+
+.w-float-70:before {
+  padding-right: 14px; }
+
+/** Arrival time */
+.off-70:before {
+  margin-left: 1400px; }
+
+.o-float-70:before {
+  left: 14px; }
+
+/** Execution time */
+.execution-71:after {
+  width: 1420px; }
+
+.e-float-71:after {
+  padding-right: 14.2px; }
+
+/** Distance from zero */
+.distance-71:after {
+  left: 1420px; }
+
+.d-float-71:after {
+  margin-left: 14.2px; }
+
+/** Waiting Time */
+.wait-71:before {
+  width: 1420px; }
+
+.w-float-71:before {
+  padding-right: 14.2px; }
+
+/** Arrival time */
+.off-71:before {
+  margin-left: 1420px; }
+
+.o-float-71:before {
+  left: 14.2px; }
+
+/** Execution time */
+.execution-72:after {
+  width: 1440px; }
+
+.e-float-72:after {
+  padding-right: 14.4px; }
+
+/** Distance from zero */
+.distance-72:after {
+  left: 1440px; }
+
+.d-float-72:after {
+  margin-left: 14.4px; }
+
+/** Waiting Time */
+.wait-72:before {
+  width: 1440px; }
+
+.w-float-72:before {
+  padding-right: 14.4px; }
+
+/** Arrival time */
+.off-72:before {
+  margin-left: 1440px; }
+
+.o-float-72:before {
+  left: 14.4px; }
+
+/** Execution time */
+.execution-73:after {
+  width: 1460px; }
+
+.e-float-73:after {
+  padding-right: 14.6px; }
+
+/** Distance from zero */
+.distance-73:after {
+  left: 1460px; }
+
+.d-float-73:after {
+  margin-left: 14.6px; }
+
+/** Waiting Time */
+.wait-73:before {
+  width: 1460px; }
+
+.w-float-73:before {
+  padding-right: 14.6px; }
+
+/** Arrival time */
+.off-73:before {
+  margin-left: 1460px; }
+
+.o-float-73:before {
+  left: 14.6px; }
+
+/** Execution time */
+.execution-74:after {
+  width: 1480px; }
+
+.e-float-74:after {
+  padding-right: 14.8px; }
+
+/** Distance from zero */
+.distance-74:after {
+  left: 1480px; }
+
+.d-float-74:after {
+  margin-left: 14.8px; }
+
+/** Waiting Time */
+.wait-74:before {
+  width: 1480px; }
+
+.w-float-74:before {
+  padding-right: 14.8px; }
+
+/** Arrival time */
+.off-74:before {
+  margin-left: 1480px; }
+
+.o-float-74:before {
+  left: 14.8px; }
+
+/** Execution time */
+.execution-75:after {
+  width: 1500px; }
+
+.e-float-75:after {
+  padding-right: 15px; }
+
+/** Distance from zero */
+.distance-75:after {
+  left: 1500px; }
+
+.d-float-75:after {
+  margin-left: 15px; }
+
+/** Waiting Time */
+.wait-75:before {
+  width: 1500px; }
+
+.w-float-75:before {
+  padding-right: 15px; }
+
+/** Arrival time */
+.off-75:before {
+  margin-left: 1500px; }
+
+.o-float-75:before {
+  left: 15px; }
+
+/** Execution time */
+.execution-76:after {
+  width: 1520px; }
+
+.e-float-76:after {
+  padding-right: 15.2px; }
+
+/** Distance from zero */
+.distance-76:after {
+  left: 1520px; }
+
+.d-float-76:after {
+  margin-left: 15.2px; }
+
+/** Waiting Time */
+.wait-76:before {
+  width: 1520px; }
+
+.w-float-76:before {
+  padding-right: 15.2px; }
+
+/** Arrival time */
+.off-76:before {
+  margin-left: 1520px; }
+
+.o-float-76:before {
+  left: 15.2px; }
+
+/** Execution time */
+.execution-77:after {
+  width: 1540px; }
+
+.e-float-77:after {
+  padding-right: 15.4px; }
+
+/** Distance from zero */
+.distance-77:after {
+  left: 1540px; }
+
+.d-float-77:after {
+  margin-left: 15.4px; }
+
+/** Waiting Time */
+.wait-77:before {
+  width: 1540px; }
+
+.w-float-77:before {
+  padding-right: 15.4px; }
+
+/** Arrival time */
+.off-77:before {
+  margin-left: 1540px; }
+
+.o-float-77:before {
+  left: 15.4px; }
+
+/** Execution time */
+.execution-78:after {
+  width: 1560px; }
+
+.e-float-78:after {
+  padding-right: 15.6px; }
+
+/** Distance from zero */
+.distance-78:after {
+  left: 1560px; }
+
+.d-float-78:after {
+  margin-left: 15.6px; }
+
+/** Waiting Time */
+.wait-78:before {
+  width: 1560px; }
+
+.w-float-78:before {
+  padding-right: 15.6px; }
+
+/** Arrival time */
+.off-78:before {
+  margin-left: 1560px; }
+
+.o-float-78:before {
+  left: 15.6px; }
+
+/** Execution time */
+.execution-79:after {
+  width: 1580px; }
+
+.e-float-79:after {
+  padding-right: 15.8px; }
+
+/** Distance from zero */
+.distance-79:after {
+  left: 1580px; }
+
+.d-float-79:after {
+  margin-left: 15.8px; }
+
+/** Waiting Time */
+.wait-79:before {
+  width: 1580px; }
+
+.w-float-79:before {
+  padding-right: 15.8px; }
+
+/** Arrival time */
+.off-79:before {
+  margin-left: 1580px; }
+
+.o-float-79:before {
+  left: 15.8px; }
+
+/** Execution time */
+.execution-80:after {
+  width: 1600px; }
+
+.e-float-80:after {
+  padding-right: 16px; }
+
+/** Distance from zero */
+.distance-80:after {
+  left: 1600px; }
+
+.d-float-80:after {
+  margin-left: 16px; }
+
+/** Waiting Time */
+.wait-80:before {
+  width: 1600px; }
+
+.w-float-80:before {
+  padding-right: 16px; }
+
+/** Arrival time */
+.off-80:before {
+  margin-left: 1600px; }
+
+.o-float-80:before {
+  left: 16px; }
+
+/** Execution time */
+.execution-81:after {
+  width: 1620px; }
+
+.e-float-81:after {
+  padding-right: 16.2px; }
+
+/** Distance from zero */
+.distance-81:after {
+  left: 1620px; }
+
+.d-float-81:after {
+  margin-left: 16.2px; }
+
+/** Waiting Time */
+.wait-81:before {
+  width: 1620px; }
+
+.w-float-81:before {
+  padding-right: 16.2px; }
+
+/** Arrival time */
+.off-81:before {
+  margin-left: 1620px; }
+
+.o-float-81:before {
+  left: 16.2px; }
+
+/** Execution time */
+.execution-82:after {
+  width: 1640px; }
+
+.e-float-82:after {
+  padding-right: 16.4px; }
+
+/** Distance from zero */
+.distance-82:after {
+  left: 1640px; }
+
+.d-float-82:after {
+  margin-left: 16.4px; }
+
+/** Waiting Time */
+.wait-82:before {
+  width: 1640px; }
+
+.w-float-82:before {
+  padding-right: 16.4px; }
+
+/** Arrival time */
+.off-82:before {
+  margin-left: 1640px; }
+
+.o-float-82:before {
+  left: 16.4px; }
+
+/** Execution time */
+.execution-83:after {
+  width: 1660px; }
+
+.e-float-83:after {
+  padding-right: 16.6px; }
+
+/** Distance from zero */
+.distance-83:after {
+  left: 1660px; }
+
+.d-float-83:after {
+  margin-left: 16.6px; }
+
+/** Waiting Time */
+.wait-83:before {
+  width: 1660px; }
+
+.w-float-83:before {
+  padding-right: 16.6px; }
+
+/** Arrival time */
+.off-83:before {
+  margin-left: 1660px; }
+
+.o-float-83:before {
+  left: 16.6px; }
+
+/** Execution time */
+.execution-84:after {
+  width: 1680px; }
+
+.e-float-84:after {
+  padding-right: 16.8px; }
+
+/** Distance from zero */
+.distance-84:after {
+  left: 1680px; }
+
+.d-float-84:after {
+  margin-left: 16.8px; }
+
+/** Waiting Time */
+.wait-84:before {
+  width: 1680px; }
+
+.w-float-84:before {
+  padding-right: 16.8px; }
+
+/** Arrival time */
+.off-84:before {
+  margin-left: 1680px; }
+
+.o-float-84:before {
+  left: 16.8px; }
+
+/** Execution time */
+.execution-85:after {
+  width: 1700px; }
+
+.e-float-85:after {
+  padding-right: 17px; }
+
+/** Distance from zero */
+.distance-85:after {
+  left: 1700px; }
+
+.d-float-85:after {
+  margin-left: 17px; }
+
+/** Waiting Time */
+.wait-85:before {
+  width: 1700px; }
+
+.w-float-85:before {
+  padding-right: 17px; }
+
+/** Arrival time */
+.off-85:before {
+  margin-left: 1700px; }
+
+.o-float-85:before {
+  left: 17px; }
+
+/** Execution time */
+.execution-86:after {
+  width: 1720px; }
+
+.e-float-86:after {
+  padding-right: 17.2px; }
+
+/** Distance from zero */
+.distance-86:after {
+  left: 1720px; }
+
+.d-float-86:after {
+  margin-left: 17.2px; }
+
+/** Waiting Time */
+.wait-86:before {
+  width: 1720px; }
+
+.w-float-86:before {
+  padding-right: 17.2px; }
+
+/** Arrival time */
+.off-86:before {
+  margin-left: 1720px; }
+
+.o-float-86:before {
+  left: 17.2px; }
+
+/** Execution time */
+.execution-87:after {
+  width: 1740px; }
+
+.e-float-87:after {
+  padding-right: 17.4px; }
+
+/** Distance from zero */
+.distance-87:after {
+  left: 1740px; }
+
+.d-float-87:after {
+  margin-left: 17.4px; }
+
+/** Waiting Time */
+.wait-87:before {
+  width: 1740px; }
+
+.w-float-87:before {
+  padding-right: 17.4px; }
+
+/** Arrival time */
+.off-87:before {
+  margin-left: 1740px; }
+
+.o-float-87:before {
+  left: 17.4px; }
+
+/** Execution time */
+.execution-88:after {
+  width: 1760px; }
+
+.e-float-88:after {
+  padding-right: 17.6px; }
+
+/** Distance from zero */
+.distance-88:after {
+  left: 1760px; }
+
+.d-float-88:after {
+  margin-left: 17.6px; }
+
+/** Waiting Time */
+.wait-88:before {
+  width: 1760px; }
+
+.w-float-88:before {
+  padding-right: 17.6px; }
+
+/** Arrival time */
+.off-88:before {
+  margin-left: 1760px; }
+
+.o-float-88:before {
+  left: 17.6px; }
+
+/** Execution time */
+.execution-89:after {
+  width: 1780px; }
+
+.e-float-89:after {
+  padding-right: 17.8px; }
+
+/** Distance from zero */
+.distance-89:after {
+  left: 1780px; }
+
+.d-float-89:after {
+  margin-left: 17.8px; }
+
+/** Waiting Time */
+.wait-89:before {
+  width: 1780px; }
+
+.w-float-89:before {
+  padding-right: 17.8px; }
+
+/** Arrival time */
+.off-89:before {
+  margin-left: 1780px; }
+
+.o-float-89:before {
+  left: 17.8px; }
+
+/** Execution time */
+.execution-90:after {
+  width: 1800px; }
+
+.e-float-90:after {
+  padding-right: 18px; }
+
+/** Distance from zero */
+.distance-90:after {
+  left: 1800px; }
+
+.d-float-90:after {
+  margin-left: 18px; }
+
+/** Waiting Time */
+.wait-90:before {
+  width: 1800px; }
+
+.w-float-90:before {
+  padding-right: 18px; }
+
+/** Arrival time */
+.off-90:before {
+  margin-left: 1800px; }
+
+.o-float-90:before {
+  left: 18px; }
+
+/** Execution time */
+.execution-91:after {
+  width: 1820px; }
+
+.e-float-91:after {
+  padding-right: 18.2px; }
+
+/** Distance from zero */
+.distance-91:after {
+  left: 1820px; }
+
+.d-float-91:after {
+  margin-left: 18.2px; }
+
+/** Waiting Time */
+.wait-91:before {
+  width: 1820px; }
+
+.w-float-91:before {
+  padding-right: 18.2px; }
+
+/** Arrival time */
+.off-91:before {
+  margin-left: 1820px; }
+
+.o-float-91:before {
+  left: 18.2px; }
+
+/** Execution time */
+.execution-92:after {
+  width: 1840px; }
+
+.e-float-92:after {
+  padding-right: 18.4px; }
+
+/** Distance from zero */
+.distance-92:after {
+  left: 1840px; }
+
+.d-float-92:after {
+  margin-left: 18.4px; }
+
+/** Waiting Time */
+.wait-92:before {
+  width: 1840px; }
+
+.w-float-92:before {
+  padding-right: 18.4px; }
+
+/** Arrival time */
+.off-92:before {
+  margin-left: 1840px; }
+
+.o-float-92:before {
+  left: 18.4px; }
+
+/** Execution time */
+.execution-93:after {
+  width: 1860px; }
+
+.e-float-93:after {
+  padding-right: 18.6px; }
+
+/** Distance from zero */
+.distance-93:after {
+  left: 1860px; }
+
+.d-float-93:after {
+  margin-left: 18.6px; }
+
+/** Waiting Time */
+.wait-93:before {
+  width: 1860px; }
+
+.w-float-93:before {
+  padding-right: 18.6px; }
+
+/** Arrival time */
+.off-93:before {
+  margin-left: 1860px; }
+
+.o-float-93:before {
+  left: 18.6px; }
+
+/** Execution time */
+.execution-94:after {
+  width: 1880px; }
+
+.e-float-94:after {
+  padding-right: 18.8px; }
+
+/** Distance from zero */
+.distance-94:after {
+  left: 1880px; }
+
+.d-float-94:after {
+  margin-left: 18.8px; }
+
+/** Waiting Time */
+.wait-94:before {
+  width: 1880px; }
+
+.w-float-94:before {
+  padding-right: 18.8px; }
+
+/** Arrival time */
+.off-94:before {
+  margin-left: 1880px; }
+
+.o-float-94:before {
+  left: 18.8px; }
+
+/** Execution time */
+.execution-95:after {
+  width: 1900px; }
+
+.e-float-95:after {
+  padding-right: 19px; }
+
+/** Distance from zero */
+.distance-95:after {
+  left: 1900px; }
+
+.d-float-95:after {
+  margin-left: 19px; }
+
+/** Waiting Time */
+.wait-95:before {
+  width: 1900px; }
+
+.w-float-95:before {
+  padding-right: 19px; }
+
+/** Arrival time */
+.off-95:before {
+  margin-left: 1900px; }
+
+.o-float-95:before {
+  left: 19px; }
+
+/** Execution time */
+.execution-96:after {
+  width: 1920px; }
+
+.e-float-96:after {
+  padding-right: 19.2px; }
+
+/** Distance from zero */
+.distance-96:after {
+  left: 1920px; }
+
+.d-float-96:after {
+  margin-left: 19.2px; }
+
+/** Waiting Time */
+.wait-96:before {
+  width: 1920px; }
+
+.w-float-96:before {
+  padding-right: 19.2px; }
+
+/** Arrival time */
+.off-96:before {
+  margin-left: 1920px; }
+
+.o-float-96:before {
+  left: 19.2px; }
+
+/** Execution time */
+.execution-97:after {
+  width: 1940px; }
+
+.e-float-97:after {
+  padding-right: 19.4px; }
+
+/** Distance from zero */
+.distance-97:after {
+  left: 1940px; }
+
+.d-float-97:after {
+  margin-left: 19.4px; }
+
+/** Waiting Time */
+.wait-97:before {
+  width: 1940px; }
+
+.w-float-97:before {
+  padding-right: 19.4px; }
+
+/** Arrival time */
+.off-97:before {
+  margin-left: 1940px; }
+
+.o-float-97:before {
+  left: 19.4px; }
+
+/** Execution time */
+.execution-98:after {
+  width: 1960px; }
+
+.e-float-98:after {
+  padding-right: 19.6px; }
+
+/** Distance from zero */
+.distance-98:after {
+  left: 1960px; }
+
+.d-float-98:after {
+  margin-left: 19.6px; }
+
+/** Waiting Time */
+.wait-98:before {
+  width: 1960px; }
+
+.w-float-98:before {
+  padding-right: 19.6px; }
+
+/** Arrival time */
+.off-98:before {
+  margin-left: 1960px; }
+
+.o-float-98:before {
+  left: 19.6px; }
+
+/** Execution time */
+.execution-99:after {
+  width: 1980px; }
+
+.e-float-99:after {
+  padding-right: 19.8px; }
+
+/** Distance from zero */
+.distance-99:after {
+  left: 1980px; }
+
+.d-float-99:after {
+  margin-left: 19.8px; }
+
+/** Waiting Time */
+.wait-99:before {
+  width: 1980px; }
+
+.w-float-99:before {
+  padding-right: 19.8px; }
+
+/** Arrival time */
+.off-99:before {
+  margin-left: 1980px; }
+
+.o-float-99:before {
+  left: 19.8px; }
+
+/** Execution time */
+.execution-100:after {
+  width: 2000px; }
+
+.e-float-100:after {
+  padding-right: 20px; }
+
+/** Distance from zero */
+.distance-100:after {
+  left: 2000px; }
+
+.d-float-100:after {
+  margin-left: 20px; }
+
+/** Waiting Time */
+.wait-100:before {
+  width: 2000px; }
+
+.w-float-100:before {
+  padding-right: 20px; }
+
+/** Arrival time */
+.off-100:before {
+  margin-left: 2000px; }
+
+.o-float-100:before {
+  left: 20px; }
+
+.default-form, .center-form {
+  width: 100%;
+  margin: 0 auto; }
+  .default-form .field-group-inline, .center-form .field-group-inline {
+    display: inline-block; }
+  .default-form .field, .center-form .field, .default-form .field-no-label, .center-form .field-no-label, .default-form input, .default-form .center-form input, .center-form .default-form input, .center-form input, .default-form textarea, .default-form .center-form textarea, .center-form .default-form textarea, .center-form textarea, .default-form select, .default-form .center-form select, .center-form .default-form select, .center-form select {
+    border: 1px solid #AAA;
+    padding: 6px 10px;
+    background-color: #FFF;
+    border-radius: 3px; }
+  .default-form .field-no-label, .center-form .field-no-label {
+    margin: 5px 0; }
+  .default-form label, .center-form label {
+    margin: 5px 0;
+    display: block; }
+  .default-form textarea, .center-form textarea {
+    display: block; }
+  .default-form input, .center-form input {
+    display: inline-block; }
+  .default-form select, .center-form select {
+    width: 48%;
+    display: inline-block; }
+  .default-form .select-label, .center-form .select-label {
+    width: 48%;
+    display: inline-block; }
+  .default-form button.field, .center-form button.field, .default-form button.field-no-label, .center-form button.field-no-label {
+    cursor: pointer;
+    transition: all 0.2s; }
+    .default-form button.field:hover, .center-form button.field:hover, .default-form button.field-no-label:hover, .center-form button.field-no-label:hover {
+      background-color: #333;
+      color: #FFF; }
+
+.center-form {
+  text-align: center; }
+
+.btn, .btn-add, .btn-small {
+  background-color: #FFF;
+  border-radius: 3px;
+  border: 1px solid;
+  cursor: pointer;
+  display: block;
+  font-family: "Catamaran", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  margin: 15px 0;
+  padding: 6px 20px; }
+  .btn-add {
+    float: right;
+    display: inline-block;
+    margin: 0; }
+  .btn-small {
+    color: #333;
+    padding: 6px;
+    width: 30px;
+    margin: 0 2.5p; }
+
+/*# sourceMappingURL=scheduling.css.map */

@@ -41,9 +41,10 @@ function mountArray(event) {
   for (var i = 0; i < $('.count').length; i++) {
     exec = parseFloat($('#execution-' + i).val());
     arrival = parseFloat($('#arrival-' + i).val());
+    deadline = parseFloat($('#deadline-' + i).val());
     n = $('#name-' + i).val();
 
-    arr.push({execution: exec, off: arrival, distance: arrival, name: n});
+    arr.push({execution: exec, off: arrival, distance: arrival, deadline: deadline, name: n});
   }
 
   return arr;
@@ -116,6 +117,16 @@ function SortByArrival(a, b){
 }
 
 /**
+ * Argument to sort by Name
+ * @param {number} a element to be compared
+ * @param {number} b element to be compared
+ * @return {number}
+ */
+function SortByNameDesc(a, b){
+  return (a.name < b.name)
+}
+
+/**
  * Argument to sort by Arrival
  * @param {number} a element to be compared
  * @param {number} b element to be compared
@@ -142,6 +153,19 @@ function SortByExecution(a, b){
   return ((aExecution < bExecution) ? -1 : ((aExecution > bExecution) ? 1 : 0));
 }
 
+/**
+ * Argument to sort by Execution
+ * @param {number} a element to be compared
+ * @param {number} b element to be compared
+ * @return {number}
+ */
+function SortByDeadline(a, b){
+
+  var adeadline = a.deadline;
+  var bdeadline = b.deadline;
+  return ((adeadline < bdeadline) ? -1 : ((adeadline > bdeadline) ? 1 : 0));
+}
+
 
 /**
  * Argument to sort by Arrival and Execution
@@ -158,6 +182,25 @@ function SortByArrivalAndExecution(a, b){
 	  if (a.execution < b.execution) return -1;
 
 	  if (a.execution > b.execution) return 1;
+  }
+  return 0
+}
+
+/**
+ * Argument to sort by Arrival and Deadline
+ * @param {number} a element to be compared
+ * @param {number} b element to be compared
+ * @return {number}
+ */
+function SortByArrivalAndDeadline(a, b){
+
+  if (a.off < b.off) return -1;
+  if (a.off > b.off) return 1;
+  if (a.off == b.off) {
+
+    if (a.deadline < b.deadline) return -1;
+
+    if (a.deadline > b.deadline) return 1;
   }
   return 0
 }
@@ -255,59 +298,168 @@ function father(obj) {
 function roundRobin(arr) {
   var quantum = parseInt($('#quantum').val());
   var over = parseInt($('#overload').val());
-  arr.sort(SortByArrival);
-  fl = arr.length;
+  var ExecutingTime = 0;
+  var arr3 = [];
 
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i].execution <= 0) return;
+  while(arr.length > 0){
+    var overVerify = 0;
+    var nextProccess = {};
+    var name = '';
+    var next;
 
-    if (arr[i].execution <= quantum) {
-      arr[i].over = 0;
-      arr[i].aClass = (arr[i].aClass != undefined)? 'child': '';
-    } else {
-      exec = arr[i].execution - quantum;
-      arr[i].execution = quantum + over;
-      arr[i].over = over;
-      arr[i].aClass = (arr[i].aClass == undefined)? 'hasChild': 'child';
-      arr.push({execution: exec, off: arr[i].off + arr[i].execution, distance: arr[i].distance + arr[i].execution, name: arr[i].name, aClass: 'child'});
-    }
-  }
+    arr.sort(SortByArrival);
 
-  arr.sort(SortByArrival);
-
-
-  var arr2 = [];
-  for (var i = 0; i < arr.length; i++) {
-    var diff = 0;
-    if (arr[i].execution != 0) {
-      if (i > 0) diff = (arr[i].distance + arr[i - 1].distance + arr[i - 1].execution - arr[i].off);
-      if (diff > arr[i].distance) arr[i].distance = diff;
-      arr[i].wait = (arr[i].distance - arr[i].off);
-      if (arr[i].wait < 0) arr[i].wait = 0;
-
-      if (arr[i].aClass != 'child') {
-        $('#rr').append(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i, arr[i].over, 'rr' + arr[i].name + ' ' + arr[i].aClass));
-      } else {
-        $('.rr' + arr[i].name).prepend(mountHtml(arr[i].name, arr[i].execution, arr[i].wait, arr[i].distance, arr[i].off, i, arr[i].over, 'child'));
-      }
-
-      if (arr[i].over == 0) {
-        if (arr[i].aClass == 'child') {
-          var f = arr.find(father, arr[i].name);
-          arr[i].wait = arr[i].distance - f.off;
-          $('.rr' + arr[i].name + ' .child:first-child').removeClass (function (index, className) {
-              return (className.match (/(^|\s)off-\S+/g) || []).join(' ');
-          });
-          $('.rr' + arr[i].name + ' .child:first-child').removeClass (function (index, className) {
-              return (className.match (/(^|\s)wait-\S+/g) || []).join(' ');
-          });
-          $('.rr' + arr[i].name + ' .child:first-child').addClass('off-' + f.off);
-          $('.rr' + arr[i].name + ' .child:first-child').addClass('wait-' + (getInteger(arr[i].distance) - getInteger(f.off)));
-        }
+    var arr2 = [];
+    for(var i = 0; i < arr.length; i++){
+      if(arr[i].off <= ExecutingTime){
         arr2.push(arr[i]);
       }
     }
+
+    if(typeof arr2[0] !== 'undefined'){
+      if(arr2[0].off <= ExecutingTime){
+
+        arr.splice.apply(arr, [0, arr2.length].concat(arr2));
+        if (arr[0].execution > quantum) {
+          next = arr[0].execution;
+          name = arr[0].name;
+          arr[0].execution = quantum + over;
+          nextProccess.name = name;
+          nextProccess.execution = next - quantum;
+          nextProccess.off = ExecutingTime + quantum + over;
+          nextProccess.distance =  ExecutingTime + quantum + over;
+          nextProccess.aClass = 'child';
+          arr.push(nextProccess);
+          if (arr[0].aClass == undefined) arr[0].aClass = 'hasChild';
+          overVerify = 1;
+        } else {
+          arr[0].aClass = (arr[0].aClass != undefined)? 'child': '';
+        }
+
+        arr[0].distance = ExecutingTime;
+        arr[0].wait = ExecutingTime - arr[0].off;
+
+      
+
+        if (overVerify > 0) {
+          if (arr[0].aClass != 'child') {
+            $('#rr').append(mountHtml(arr[0].name, arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i, over, 'rr' + arr[0].name));
+          } else {
+            $('.rr' + arr[0].name).prepend(mountHtml(arr[0].name, arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i, over, 'child'));
+          }
+        } else {
+          if (arr[0].aClass != 'child') {
+            $('#rr').append(mountHtml(arr[0].name, arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i, 0, 'rr' + arr[0].name));
+          } else {
+            $('.rr' + arr[0].name).prepend(mountHtml(arr[0].name, arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i, 0, 'child'));
+          }
+        }
+
+        ExecutingTime = (arr[0].distance + arr[0].execution)-1;
+
+        var f = arr3.find(father, arr[0].name);
+        var index = arr3.indexOf(f);
+
+        if (index > -1) {
+          arr3[index].wait = arr3[index].wait + arr[0].wait;  
+          arr3[index].execution = arr3[index].execution + arr[0].execution;  
+        } else {
+          arr3.push(arr[0]);
+        }
+
+        arr.splice(0, 1);
+      }
+    }
+
+    ExecutingTime++;
+
   }
 
-  turnAround(arr2, 'Rr');
+  turnAround(arr3, 'Rr');
+}
+
+function father(obj) {
+  return (obj.name == this && obj.aClass == 'hasChild');
+}
+
+function edf(arr) {
+  var quantum = parseInt($('#quantum').val());
+  var over = parseInt($('#overload').val());
+  var ExecutingTime = 0;
+  var arr3 = [];
+
+  while(arr.length > 0){
+    var overVerify = 0;
+    var nextProccess = {};
+    var name = '';
+    var next;
+
+    arr.sort(SortByArrivalAndDeadline);
+
+    var arr2 = [];
+    for(var i = 0; i < arr.length; i++){
+      if(arr[i].off <= ExecutingTime){
+        arr2.push(arr[i]);
+      }
+    }
+
+    if(typeof arr2[0] !== 'undefined'){
+      if(arr2[0].off <= ExecutingTime){
+        arr2.sort(SortByDeadline);
+
+        arr.splice.apply(arr, [0, arr2.length].concat(arr2));
+        if (arr[0].execution > quantum) {
+          next = arr[0].execution;
+          name = arr[0].name;
+          arr[0].execution = quantum + over;
+          nextProccess.name = name;
+          nextProccess.execution = next - quantum;
+          nextProccess.off = ExecutingTime + quantum + over;
+          nextProccess.distance =  ExecutingTime + quantum + over;
+          nextProccess.aClass = 'child';
+          arr.push(nextProccess);
+          if (arr[0].aClass == undefined) arr[0].aClass = 'hasChild';
+          overVerify = 1;
+        } else {
+          arr[0].aClass = (arr[0].aClass != undefined)? 'child': '';
+        }
+
+        arr[0].distance = ExecutingTime;
+        arr[0].wait = ExecutingTime - arr[0].off;
+
+      
+
+        if (overVerify > 0) {
+          if (arr[0].aClass != 'child') {
+            $('#edf').append(mountHtml(arr[0].name, arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i, over, 'edf' + arr[0].name));
+          } else {
+            $('.edf' + arr[0].name).prepend(mountHtml(arr[0].name, arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i, over, 'child'));
+          }
+        } else {
+          if (arr[0].aClass != 'child') {
+            $('#edf').append(mountHtml(arr[0].name, arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i, 0, 'edf' + arr[0].name));
+          } else {
+            $('.edf' + arr[0].name).prepend(mountHtml(arr[0].name, arr[0].execution, arr[0].wait, arr[0].distance, arr[0].off, i, 0, 'child'));
+          }
+        }
+
+        ExecutingTime = (arr[0].distance + arr[0].execution)-1;
+
+        var f = arr3.find(father, arr[0].name);
+        var index = arr3.indexOf(f);
+
+        if (index > -1) {
+          arr3[index].wait = arr3[index].wait + arr[0].wait;  
+          arr3[index].execution = arr3[index].execution + arr[0].execution;  
+        } else {
+          arr3.push(arr[0]);
+        }
+
+        arr.splice(0, 1);
+      }
+    }
+    ExecutingTime++;
+
+  }
+  turnAround(arr3, 'Edf');
 }
