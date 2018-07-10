@@ -98,7 +98,7 @@ dt {
   .job:before {
     content: "";
     float: left;
-    background-color: rgba(124, 177, 36, 0.34);
+    background-color: rgba(187, 246, 247, 0.34);
     margin-bottom: 10px;
     height: 90%;
     position: relative;
@@ -112,7 +112,7 @@ dt {
   .job:after {
     content: "";
     display: block;
-    background-color: #3178CA;
+    background-color: #309337;
     width: 50px;
     margin-bottom: 10px;
     height: 90%;
