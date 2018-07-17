@@ -28,6 +28,21 @@ button {
 .inline {
   display: inline-block !important; }
 
+h1 {
+  color: #FFF;
+  text-align: center;
+  padding: 2%; }
+
+.scheduling {
+  background-color: #D8BFD8; }
+  .scheduling h1 {
+    background-color: #800080; }
+
+.pagination {
+  background-color: #B0E0E6; }
+  .pagination h1 {
+    background-color: #483D8B; }
+
 dl {
   display: flex;
   background-color: white;
@@ -3009,5 +3024,37 @@ dt {
     padding: 6px;
     width: 30px;
     margin: 0 2.5p; }
+
+#plus {
+  background-color: #228B22;
+  color: #FFF;
+  border: none;
+  font-size: 20px;
+  font-weigth: bold; }
+
+#run {
+  background-color: #8B0000;
+  color: #FFF;
+  border: none;
+  font-size: 20px;
+  font-weigth: bold; }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 15%;
+  margin-left: 40px; }
+
+td, th {
+  border: 1px solid;
+  text-align: center;
+  padding: 20px; }
+
+tr:nth-child(even) {
+  background-color: #dddddd; }
+
+.disco td, th {
+  border: 20px solid;
+  padding: 20px; }
 
 /*# sourceMappingURL=scheduling.css.map */
