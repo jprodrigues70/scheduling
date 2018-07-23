@@ -110,8 +110,14 @@ dt
   .execution-#{$i}
     &:after
       $value: ($i * 20px)
+      animation: move 5s 1
       width: $value
 
+      @keyframes move 
+        0%
+          width: 0px
+        100%
+          width: $i
   .e-float-#{$i}
     &:after
       $value: (($i / 100) * 20px)

@@ -40,6 +40,12 @@
         </div>
         <button id="plus" type="button" class="btn inline">+</button>
         <button id="run" type="submit" name="button" class="btn inline">Executar</button>
+        <section class="SelectAlg">
+          <a href="#fifo">Fifo |</a>
+          <a href="#sjf">SJF |</a>
+          <a href="#rr">Round_Robin |</a>
+          <a href="#edf">EDF</a>
+        </section>
       </form>
     </section>
     <section>
@@ -320,11 +326,13 @@
       var arr2 = mountArray(event);
   	  var arr3 = mountArray(event);
       var arr4 = mountArray(event);
-      
+
       fifo(arr);
 	    sjf(arr2);
       roundRobin(arr3);
       edf(arr4);
+
+    $('turnAroundFifo').show("overload", { direction: "right" }, 1000);
     })
   </script>
 </html>
