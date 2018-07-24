@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Pagination <small>Simulador de Algoritmos de Substituição de Páginas</small></h1>
+    <h1><small>Simulador de Algoritmos de Substituição de Páginas</small></h1>
     <legend></legend>
     <div class="row" ng-controller="AplicacaoController">
         <div class="col-md-12">
@@ -59,25 +59,18 @@
 
             <div class="row" col-sm-3>
                 <h4>Política de substituição <strong>{{algoritmoNome}}</strong>, com <strong>{{numQuadros}}</strong> na memória principal.</h4>
-                <ol>
-                  <li>{{referenciasOriginais[0]}}</li>
-                  <li>{{referenciasOriginais[1]}}</li>
-                  <li>{{referenciasOriginais[2]}}</li>
-                  <li>{{referenciasOriginais[3]}}</li>
-                  <li>{{referenciasOriginais[4]}}</li>
-                  <li>{{referenciasOriginais[5]}}</li>
-                  <li>{{referenciasOriginais[6]}}</li>
-                  <li>{{referenciasOriginais[7]}}</li>
-                  <li>{{referenciasOriginais[8]}}</li>
-                </ol>
-                <ol>
-                  <li>{{referenciasRestantes[0]}}</li>
-                  <li>{{referenciasRestantes[1]}}</li>
-                  <li>{{referenciasRestantes[2]}}</li>
-                  <li>{{referenciasRestantes[3]}}</li>
-                  <li>{{referenciasRestantes[4]}}</li>
-                  <li>{{referenciasRestantes[5]}}</li>
-                </ol>
+                <dl class="dl-horizontal">
+                    <dt>Páginas</dt>
+                    <dd>{{referenciasOriginais}}</dd>
+                    <dt>Disco</dt>
+                    <dd>{{referenciasRestantes}}</dd>
+                    <dt>Memória Principal</dt>
+                    <dd>{{memoria}}</dd>
+                    <dt>Mapeamento</dt>
+                    <dd>{{referenciasOriginais}} | 0 2 4 5 6 7</dd>
+                    <dt>Passo corrente</dt>
+                    <dd>{{passo}}</dd>
+                </dl>
             </div>
 
             <div class="col-sm-offset-2">

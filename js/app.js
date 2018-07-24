@@ -174,8 +174,8 @@ app.controller('SimuladorController', ['$scope', function($scope) {
         $scope.simulaLRU();
     });
 
-    $scope.$on('random', function(event, params) {
-        $scope.defineParametros(params);
-        $scope.simulaRandom();
-    });
+    function itemCtrl($scope) {
+  
+        console.log('Index atual:' + $scope.$index);
+    }
 }]);
