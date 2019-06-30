@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="assets/css/scheduling.css" media="screen" title="no title">
-    <title>Scheduling</title>
+    <title>Escalonador</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
   </head>
   <body>
+    <section class="scheduling">
     <section>
+      <h1 style="color:#FFF">Escalonador de processos</h1>
       <form id="job" class="center-form">
         <div class="container">
           <div class="field-group-inline">
@@ -14,7 +21,7 @@
             <input id="quantum" type="number" name="quantum" value="2">
           </div>
           <div class="field-group-inline">
-            <label for="overload">Overload</label>
+            <label for="overload">Sobrecarga</label>
             <input id="overload" type="number" name="overload" value="1">
           </div>
           <div class="job-info">
@@ -37,7 +44,13 @@
           </div>
         </div>
         <button id="plus" type="button" class="btn inline">+</button>
-        <button type="submit" name="button" class="btn inline">LANCE!</button>
+        <button id="run" type="submit" name="button" class="btn inline">Executar</button>
+        <section class="SelectAlg">
+          <a href="#fifo">Fifo |</a>
+          <a href="#sjf">SJF |</a>
+          <a href="#rr">Round_Robin |</a>
+          <a href="#edf">EDF</a>
+        </section>
       </form>
     </section>
     <section>
@@ -45,6 +58,12 @@
         <dt>
           FIFO - (FCFS - First Come, First Served)
         </dt>
+        <div style="display: flex; justify-content: center;">
+          <div style="width: 40px; height: 40px; margin: 10px; background-color: green;"></div>
+          <label style="margin-top: 20px;">Executado</label>
+          <div style="width: 40px; height: 40px; margin: 10px; background-color: #E8FCFC;"></div>
+          <label style="margin-top: 20px;">Espera</label>
+        </div>
         <dt id="turnAroundFifo"></dt>
       </dl>
     </section>
@@ -53,6 +72,12 @@
         <dt>
           SJF - (Shorterst Job First)
         </dt>
+        <div style="display: flex; justify-content: center;">
+          <div style="width: 40px; height: 40px; margin: 10px; background-color: green;"></div>
+          <label style="margin-top: 20px;">Executado</label>
+          <div style="width: 40px; height: 40px; margin: 10px; background-color: #E8FCFC;"></div>
+          <label style="margin-top: 20px;">Espera</label>
+        </div>
         <dt id="turnAroundSjf"></dt>
       </dl>
     </section>
@@ -61,6 +86,12 @@
         <dt>
           RR - (Round Robin)
         </dt>
+        <div style="display: flex; justify-content: center;">
+          <div style="width: 40px; height: 40px; margin: 10px; background-color: green;"></div>
+          <label style="margin-top: 20px;">Executado</label>
+          <div style="width: 40px; height: 40px; margin: 10px; background-color: red;"></div>
+          <label style="margin-top: 20px;">Sobrecarga</label>
+        </div>
         <dt id="turnAroundRr"></dt>
       </dl>
     </section>
@@ -69,8 +100,226 @@
         <dt>
           EDF - (Early Deadline First)
         </dt>
+        <div style="display: flex; justify-content: center;">
+          <div style="width: 40px; height: 40px; margin: 10px; background-color: green;"></div>
+          <label style="margin-top: 20px;">Executado</label>
+          <div style="width: 40px; height: 40px; margin: 10px; background-color: red;"></div>
+          <label style="margin-top: 20px;">Sobrecarga</label>
+          <div style="width: 40px; height: 40px; margin: 10px; background-color: #696969;"></div>
+          <label style="margin-top: 20px;">Estouro de Deadline</label>
+          <div style="width: 40px; height: 40px; margin: 10px; border-right: 5px solid red;"></div>
+          <label style="margin-top: 20px;">Deadline</label>
+        </div>
         <dt id="turnAroundEdf"></dt>
       </dl>
+    </section>
+    </section>
+    <section class="pagination">
+      <!-- <h1>Paginação</h1> -->
+      <a style="font-size: 40px;" href="pagesim.html">Substituição de página</a>
+      <div style="display: flex; justify-content: space-around;"> 
+        <div>
+          <table>
+            <h4>Tabela de Páginas Invertida</h4>
+            <tr>
+              <td>0</td>
+              <td>0</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>0</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          <table class="disco">
+          <h4 style="margin-left: 120px;">Disco</h4>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          <table class="handler">
+          <h4 style="margin-left: 120px;">Gerenciamento de memória</h4>
+          <tr>
+              <td>o</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        </div>
+      </div>
     </section>
   </body>
   <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
@@ -83,11 +332,13 @@
       var arr2 = mountArray(event);
   	  var arr3 = mountArray(event);
       var arr4 = mountArray(event);
-      
+
       fifo(arr);
 	    sjf(arr2);
       roundRobin(arr3);
       edf(arr4);
+
+    $('turnAroundFifo').show("overload", { direction: "right" }, 1000);
     })
   </script>
 </html>

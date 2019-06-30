@@ -7,7 +7,7 @@ function newJobInfo() {
   $('#job .container').append('\
     <div class="job-info">\
       <div class="field-group-inline">\
-        <label for="name-' + count + '">T. Chegada</label>\
+        <label for="name-' + count + '">Processo</label>\
         <input disabled id="name-' + count + '" value="' + getJob(count) + '" type="text" name="name-' + count + '">\
       </div>\
       <div class="field-group-inline">\

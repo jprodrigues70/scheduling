@@ -28,6 +28,21 @@ button {
 .inline {
   display: inline-block !important; }
 
+h1 {
+  color: #FFF;
+  text-align: center;
+  padding: 2%; }
+
+.scheduling {
+  background-color: #D8BFD8; }
+  .scheduling h1 {
+    background-color: #800080; }
+
+.pagination {
+  background-color: #B0E0E6; }
+  .pagination h1 {
+    background-color: #483D8B; }
+
 dl {
   display: flex;
   background-color: white;
@@ -98,7 +113,7 @@ dt {
   .job:before {
     content: "";
     float: left;
-    background-color: rgba(124, 177, 36, 0.34);
+    background-color: rgba(187, 246, 247, 0.34);
     margin-bottom: 10px;
     height: 90%;
     position: relative;
@@ -112,7 +127,7 @@ dt {
   .job:after {
     content: "";
     display: block;
-    background-color: #3178CA;
+    background-color: #309337;
     width: 50px;
     margin-bottom: 10px;
     height: 90%;
@@ -129,8 +144,13 @@ dt {
 
 /** Execution time */
 .execution-0:after {
+  animation: move 5s 1;
   width: 0px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 0; } }
 .e-float-0:after {
   padding-right: 0px; }
 
@@ -157,8 +177,13 @@ dt {
 
 /** Execution time */
 .execution-1:after {
+  animation: move 5s 1;
   width: 20px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 1; } }
 .e-float-1:after {
   padding-right: 0.2px; }
 
@@ -185,8 +210,13 @@ dt {
 
 /** Execution time */
 .execution-2:after {
+  animation: move 5s 1;
   width: 40px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 2; } }
 .e-float-2:after {
   padding-right: 0.4px; }
 
@@ -213,8 +243,13 @@ dt {
 
 /** Execution time */
 .execution-3:after {
+  animation: move 5s 1;
   width: 60px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 3; } }
 .e-float-3:after {
   padding-right: 0.6px; }
 
@@ -241,8 +276,13 @@ dt {
 
 /** Execution time */
 .execution-4:after {
+  animation: move 5s 1;
   width: 80px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 4; } }
 .e-float-4:after {
   padding-right: 0.8px; }
 
@@ -269,8 +309,13 @@ dt {
 
 /** Execution time */
 .execution-5:after {
+  animation: move 5s 1;
   width: 100px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 5; } }
 .e-float-5:after {
   padding-right: 1px; }
 
@@ -297,8 +342,13 @@ dt {
 
 /** Execution time */
 .execution-6:after {
+  animation: move 5s 1;
   width: 120px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 6; } }
 .e-float-6:after {
   padding-right: 1.2px; }
 
@@ -325,8 +375,13 @@ dt {
 
 /** Execution time */
 .execution-7:after {
+  animation: move 5s 1;
   width: 140px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 7; } }
 .e-float-7:after {
   padding-right: 1.4px; }
 
@@ -353,8 +408,13 @@ dt {
 
 /** Execution time */
 .execution-8:after {
+  animation: move 5s 1;
   width: 160px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 8; } }
 .e-float-8:after {
   padding-right: 1.6px; }
 
@@ -381,8 +441,13 @@ dt {
 
 /** Execution time */
 .execution-9:after {
+  animation: move 5s 1;
   width: 180px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 9; } }
 .e-float-9:after {
   padding-right: 1.8px; }
 
@@ -409,8 +474,13 @@ dt {
 
 /** Execution time */
 .execution-10:after {
+  animation: move 5s 1;
   width: 200px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 10; } }
 .e-float-10:after {
   padding-right: 2px; }
 
@@ -437,8 +507,13 @@ dt {
 
 /** Execution time */
 .execution-11:after {
+  animation: move 5s 1;
   width: 220px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 11; } }
 .e-float-11:after {
   padding-right: 2.2px; }
 
@@ -465,8 +540,13 @@ dt {
 
 /** Execution time */
 .execution-12:after {
+  animation: move 5s 1;
   width: 240px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 12; } }
 .e-float-12:after {
   padding-right: 2.4px; }
 
@@ -493,8 +573,13 @@ dt {
 
 /** Execution time */
 .execution-13:after {
+  animation: move 5s 1;
   width: 260px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 13; } }
 .e-float-13:after {
   padding-right: 2.6px; }
 
@@ -521,8 +606,13 @@ dt {
 
 /** Execution time */
 .execution-14:after {
+  animation: move 5s 1;
   width: 280px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 14; } }
 .e-float-14:after {
   padding-right: 2.8px; }
 
@@ -549,8 +639,13 @@ dt {
 
 /** Execution time */
 .execution-15:after {
+  animation: move 5s 1;
   width: 300px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 15; } }
 .e-float-15:after {
   padding-right: 3px; }
 
@@ -577,8 +672,13 @@ dt {
 
 /** Execution time */
 .execution-16:after {
+  animation: move 5s 1;
   width: 320px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 16; } }
 .e-float-16:after {
   padding-right: 3.2px; }
 
@@ -605,8 +705,13 @@ dt {
 
 /** Execution time */
 .execution-17:after {
+  animation: move 5s 1;
   width: 340px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 17; } }
 .e-float-17:after {
   padding-right: 3.4px; }
 
@@ -633,8 +738,13 @@ dt {
 
 /** Execution time */
 .execution-18:after {
+  animation: move 5s 1;
   width: 360px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 18; } }
 .e-float-18:after {
   padding-right: 3.6px; }
 
@@ -661,8 +771,13 @@ dt {
 
 /** Execution time */
 .execution-19:after {
+  animation: move 5s 1;
   width: 380px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 19; } }
 .e-float-19:after {
   padding-right: 3.8px; }
 
@@ -689,8 +804,13 @@ dt {
 
 /** Execution time */
 .execution-20:after {
+  animation: move 5s 1;
   width: 400px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 20; } }
 .e-float-20:after {
   padding-right: 4px; }
 
@@ -717,8 +837,13 @@ dt {
 
 /** Execution time */
 .execution-21:after {
+  animation: move 5s 1;
   width: 420px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 21; } }
 .e-float-21:after {
   padding-right: 4.2px; }
 
@@ -745,8 +870,13 @@ dt {
 
 /** Execution time */
 .execution-22:after {
+  animation: move 5s 1;
   width: 440px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 22; } }
 .e-float-22:after {
   padding-right: 4.4px; }
 
@@ -773,8 +903,13 @@ dt {
 
 /** Execution time */
 .execution-23:after {
+  animation: move 5s 1;
   width: 460px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 23; } }
 .e-float-23:after {
   padding-right: 4.6px; }
 
@@ -801,8 +936,13 @@ dt {
 
 /** Execution time */
 .execution-24:after {
+  animation: move 5s 1;
   width: 480px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 24; } }
 .e-float-24:after {
   padding-right: 4.8px; }
 
@@ -829,8 +969,13 @@ dt {
 
 /** Execution time */
 .execution-25:after {
+  animation: move 5s 1;
   width: 500px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 25; } }
 .e-float-25:after {
   padding-right: 5px; }
 
@@ -857,8 +1002,13 @@ dt {
 
 /** Execution time */
 .execution-26:after {
+  animation: move 5s 1;
   width: 520px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 26; } }
 .e-float-26:after {
   padding-right: 5.2px; }
 
@@ -885,8 +1035,13 @@ dt {
 
 /** Execution time */
 .execution-27:after {
+  animation: move 5s 1;
   width: 540px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 27; } }
 .e-float-27:after {
   padding-right: 5.4px; }
 
@@ -913,8 +1068,13 @@ dt {
 
 /** Execution time */
 .execution-28:after {
+  animation: move 5s 1;
   width: 560px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 28; } }
 .e-float-28:after {
   padding-right: 5.6px; }
 
@@ -941,8 +1101,13 @@ dt {
 
 /** Execution time */
 .execution-29:after {
+  animation: move 5s 1;
   width: 580px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 29; } }
 .e-float-29:after {
   padding-right: 5.8px; }
 
@@ -969,8 +1134,13 @@ dt {
 
 /** Execution time */
 .execution-30:after {
+  animation: move 5s 1;
   width: 600px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 30; } }
 .e-float-30:after {
   padding-right: 6px; }
 
@@ -997,8 +1167,13 @@ dt {
 
 /** Execution time */
 .execution-31:after {
+  animation: move 5s 1;
   width: 620px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 31; } }
 .e-float-31:after {
   padding-right: 6.2px; }
 
@@ -1025,8 +1200,13 @@ dt {
 
 /** Execution time */
 .execution-32:after {
+  animation: move 5s 1;
   width: 640px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 32; } }
 .e-float-32:after {
   padding-right: 6.4px; }
 
@@ -1053,8 +1233,13 @@ dt {
 
 /** Execution time */
 .execution-33:after {
+  animation: move 5s 1;
   width: 660px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 33; } }
 .e-float-33:after {
   padding-right: 6.6px; }
 
@@ -1081,8 +1266,13 @@ dt {
 
 /** Execution time */
 .execution-34:after {
+  animation: move 5s 1;
   width: 680px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 34; } }
 .e-float-34:after {
   padding-right: 6.8px; }
 
@@ -1109,8 +1299,13 @@ dt {
 
 /** Execution time */
 .execution-35:after {
+  animation: move 5s 1;
   width: 700px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 35; } }
 .e-float-35:after {
   padding-right: 7px; }
 
@@ -1137,8 +1332,13 @@ dt {
 
 /** Execution time */
 .execution-36:after {
+  animation: move 5s 1;
   width: 720px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 36; } }
 .e-float-36:after {
   padding-right: 7.2px; }
 
@@ -1165,8 +1365,13 @@ dt {
 
 /** Execution time */
 .execution-37:after {
+  animation: move 5s 1;
   width: 740px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 37; } }
 .e-float-37:after {
   padding-right: 7.4px; }
 
@@ -1193,8 +1398,13 @@ dt {
 
 /** Execution time */
 .execution-38:after {
+  animation: move 5s 1;
   width: 760px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 38; } }
 .e-float-38:after {
   padding-right: 7.6px; }
 
@@ -1221,8 +1431,13 @@ dt {
 
 /** Execution time */
 .execution-39:after {
+  animation: move 5s 1;
   width: 780px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 39; } }
 .e-float-39:after {
   padding-right: 7.8px; }
 
@@ -1249,8 +1464,13 @@ dt {
 
 /** Execution time */
 .execution-40:after {
+  animation: move 5s 1;
   width: 800px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 40; } }
 .e-float-40:after {
   padding-right: 8px; }
 
@@ -1277,8 +1497,13 @@ dt {
 
 /** Execution time */
 .execution-41:after {
+  animation: move 5s 1;
   width: 820px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 41; } }
 .e-float-41:after {
   padding-right: 8.2px; }
 
@@ -1305,8 +1530,13 @@ dt {
 
 /** Execution time */
 .execution-42:after {
+  animation: move 5s 1;
   width: 840px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 42; } }
 .e-float-42:after {
   padding-right: 8.4px; }
 
@@ -1333,8 +1563,13 @@ dt {
 
 /** Execution time */
 .execution-43:after {
+  animation: move 5s 1;
   width: 860px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 43; } }
 .e-float-43:after {
   padding-right: 8.6px; }
 
@@ -1361,8 +1596,13 @@ dt {
 
 /** Execution time */
 .execution-44:after {
+  animation: move 5s 1;
   width: 880px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 44; } }
 .e-float-44:after {
   padding-right: 8.8px; }
 
@@ -1389,8 +1629,13 @@ dt {
 
 /** Execution time */
 .execution-45:after {
+  animation: move 5s 1;
   width: 900px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 45; } }
 .e-float-45:after {
   padding-right: 9px; }
 
@@ -1417,8 +1662,13 @@ dt {
 
 /** Execution time */
 .execution-46:after {
+  animation: move 5s 1;
   width: 920px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 46; } }
 .e-float-46:after {
   padding-right: 9.2px; }
 
@@ -1445,8 +1695,13 @@ dt {
 
 /** Execution time */
 .execution-47:after {
+  animation: move 5s 1;
   width: 940px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 47; } }
 .e-float-47:after {
   padding-right: 9.4px; }
 
@@ -1473,8 +1728,13 @@ dt {
 
 /** Execution time */
 .execution-48:after {
+  animation: move 5s 1;
   width: 960px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 48; } }
 .e-float-48:after {
   padding-right: 9.6px; }
 
@@ -1501,8 +1761,13 @@ dt {
 
 /** Execution time */
 .execution-49:after {
+  animation: move 5s 1;
   width: 980px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 49; } }
 .e-float-49:after {
   padding-right: 9.8px; }
 
@@ -1529,8 +1794,13 @@ dt {
 
 /** Execution time */
 .execution-50:after {
+  animation: move 5s 1;
   width: 1000px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 50; } }
 .e-float-50:after {
   padding-right: 10px; }
 
@@ -1557,8 +1827,13 @@ dt {
 
 /** Execution time */
 .execution-51:after {
+  animation: move 5s 1;
   width: 1020px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 51; } }
 .e-float-51:after {
   padding-right: 10.2px; }
 
@@ -1585,8 +1860,13 @@ dt {
 
 /** Execution time */
 .execution-52:after {
+  animation: move 5s 1;
   width: 1040px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 52; } }
 .e-float-52:after {
   padding-right: 10.4px; }
 
@@ -1613,8 +1893,13 @@ dt {
 
 /** Execution time */
 .execution-53:after {
+  animation: move 5s 1;
   width: 1060px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 53; } }
 .e-float-53:after {
   padding-right: 10.6px; }
 
@@ -1641,8 +1926,13 @@ dt {
 
 /** Execution time */
 .execution-54:after {
+  animation: move 5s 1;
   width: 1080px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 54; } }
 .e-float-54:after {
   padding-right: 10.8px; }
 
@@ -1669,8 +1959,13 @@ dt {
 
 /** Execution time */
 .execution-55:after {
+  animation: move 5s 1;
   width: 1100px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 55; } }
 .e-float-55:after {
   padding-right: 11px; }
 
@@ -1697,8 +1992,13 @@ dt {
 
 /** Execution time */
 .execution-56:after {
+  animation: move 5s 1;
   width: 1120px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 56; } }
 .e-float-56:after {
   padding-right: 11.2px; }
 
@@ -1725,8 +2025,13 @@ dt {
 
 /** Execution time */
 .execution-57:after {
+  animation: move 5s 1;
   width: 1140px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 57; } }
 .e-float-57:after {
   padding-right: 11.4px; }
 
@@ -1753,8 +2058,13 @@ dt {
 
 /** Execution time */
 .execution-58:after {
+  animation: move 5s 1;
   width: 1160px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 58; } }
 .e-float-58:after {
   padding-right: 11.6px; }
 
@@ -1781,8 +2091,13 @@ dt {
 
 /** Execution time */
 .execution-59:after {
+  animation: move 5s 1;
   width: 1180px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 59; } }
 .e-float-59:after {
   padding-right: 11.8px; }
 
@@ -1809,8 +2124,13 @@ dt {
 
 /** Execution time */
 .execution-60:after {
+  animation: move 5s 1;
   width: 1200px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 60; } }
 .e-float-60:after {
   padding-right: 12px; }
 
@@ -1837,8 +2157,13 @@ dt {
 
 /** Execution time */
 .execution-61:after {
+  animation: move 5s 1;
   width: 1220px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 61; } }
 .e-float-61:after {
   padding-right: 12.2px; }
 
@@ -1865,8 +2190,13 @@ dt {
 
 /** Execution time */
 .execution-62:after {
+  animation: move 5s 1;
   width: 1240px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 62; } }
 .e-float-62:after {
   padding-right: 12.4px; }
 
@@ -1893,8 +2223,13 @@ dt {
 
 /** Execution time */
 .execution-63:after {
+  animation: move 5s 1;
   width: 1260px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 63; } }
 .e-float-63:after {
   padding-right: 12.6px; }
 
@@ -1921,8 +2256,13 @@ dt {
 
 /** Execution time */
 .execution-64:after {
+  animation: move 5s 1;
   width: 1280px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 64; } }
 .e-float-64:after {
   padding-right: 12.8px; }
 
@@ -1949,8 +2289,13 @@ dt {
 
 /** Execution time */
 .execution-65:after {
+  animation: move 5s 1;
   width: 1300px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 65; } }
 .e-float-65:after {
   padding-right: 13px; }
 
@@ -1977,8 +2322,13 @@ dt {
 
 /** Execution time */
 .execution-66:after {
+  animation: move 5s 1;
   width: 1320px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 66; } }
 .e-float-66:after {
   padding-right: 13.2px; }
 
@@ -2005,8 +2355,13 @@ dt {
 
 /** Execution time */
 .execution-67:after {
+  animation: move 5s 1;
   width: 1340px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 67; } }
 .e-float-67:after {
   padding-right: 13.4px; }
 
@@ -2033,8 +2388,13 @@ dt {
 
 /** Execution time */
 .execution-68:after {
+  animation: move 5s 1;
   width: 1360px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 68; } }
 .e-float-68:after {
   padding-right: 13.6px; }
 
@@ -2061,8 +2421,13 @@ dt {
 
 /** Execution time */
 .execution-69:after {
+  animation: move 5s 1;
   width: 1380px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 69; } }
 .e-float-69:after {
   padding-right: 13.8px; }
 
@@ -2089,8 +2454,13 @@ dt {
 
 /** Execution time */
 .execution-70:after {
+  animation: move 5s 1;
   width: 1400px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 70; } }
 .e-float-70:after {
   padding-right: 14px; }
 
@@ -2117,8 +2487,13 @@ dt {
 
 /** Execution time */
 .execution-71:after {
+  animation: move 5s 1;
   width: 1420px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 71; } }
 .e-float-71:after {
   padding-right: 14.2px; }
 
@@ -2145,8 +2520,13 @@ dt {
 
 /** Execution time */
 .execution-72:after {
+  animation: move 5s 1;
   width: 1440px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 72; } }
 .e-float-72:after {
   padding-right: 14.4px; }
 
@@ -2173,8 +2553,13 @@ dt {
 
 /** Execution time */
 .execution-73:after {
+  animation: move 5s 1;
   width: 1460px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 73; } }
 .e-float-73:after {
   padding-right: 14.6px; }
 
@@ -2201,8 +2586,13 @@ dt {
 
 /** Execution time */
 .execution-74:after {
+  animation: move 5s 1;
   width: 1480px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 74; } }
 .e-float-74:after {
   padding-right: 14.8px; }
 
@@ -2229,8 +2619,13 @@ dt {
 
 /** Execution time */
 .execution-75:after {
+  animation: move 5s 1;
   width: 1500px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 75; } }
 .e-float-75:after {
   padding-right: 15px; }
 
@@ -2257,8 +2652,13 @@ dt {
 
 /** Execution time */
 .execution-76:after {
+  animation: move 5s 1;
   width: 1520px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 76; } }
 .e-float-76:after {
   padding-right: 15.2px; }
 
@@ -2285,8 +2685,13 @@ dt {
 
 /** Execution time */
 .execution-77:after {
+  animation: move 5s 1;
   width: 1540px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 77; } }
 .e-float-77:after {
   padding-right: 15.4px; }
 
@@ -2313,8 +2718,13 @@ dt {
 
 /** Execution time */
 .execution-78:after {
+  animation: move 5s 1;
   width: 1560px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 78; } }
 .e-float-78:after {
   padding-right: 15.6px; }
 
@@ -2341,8 +2751,13 @@ dt {
 
 /** Execution time */
 .execution-79:after {
+  animation: move 5s 1;
   width: 1580px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 79; } }
 .e-float-79:after {
   padding-right: 15.8px; }
 
@@ -2369,8 +2784,13 @@ dt {
 
 /** Execution time */
 .execution-80:after {
+  animation: move 5s 1;
   width: 1600px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 80; } }
 .e-float-80:after {
   padding-right: 16px; }
 
@@ -2397,8 +2817,13 @@ dt {
 
 /** Execution time */
 .execution-81:after {
+  animation: move 5s 1;
   width: 1620px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 81; } }
 .e-float-81:after {
   padding-right: 16.2px; }
 
@@ -2425,8 +2850,13 @@ dt {
 
 /** Execution time */
 .execution-82:after {
+  animation: move 5s 1;
   width: 1640px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 82; } }
 .e-float-82:after {
   padding-right: 16.4px; }
 
@@ -2453,8 +2883,13 @@ dt {
 
 /** Execution time */
 .execution-83:after {
+  animation: move 5s 1;
   width: 1660px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 83; } }
 .e-float-83:after {
   padding-right: 16.6px; }
 
@@ -2481,8 +2916,13 @@ dt {
 
 /** Execution time */
 .execution-84:after {
+  animation: move 5s 1;
   width: 1680px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 84; } }
 .e-float-84:after {
   padding-right: 16.8px; }
 
@@ -2509,8 +2949,13 @@ dt {
 
 /** Execution time */
 .execution-85:after {
+  animation: move 5s 1;
   width: 1700px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 85; } }
 .e-float-85:after {
   padding-right: 17px; }
 
@@ -2537,8 +2982,13 @@ dt {
 
 /** Execution time */
 .execution-86:after {
+  animation: move 5s 1;
   width: 1720px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 86; } }
 .e-float-86:after {
   padding-right: 17.2px; }
 
@@ -2565,8 +3015,13 @@ dt {
 
 /** Execution time */
 .execution-87:after {
+  animation: move 5s 1;
   width: 1740px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 87; } }
 .e-float-87:after {
   padding-right: 17.4px; }
 
@@ -2593,8 +3048,13 @@ dt {
 
 /** Execution time */
 .execution-88:after {
+  animation: move 5s 1;
   width: 1760px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 88; } }
 .e-float-88:after {
   padding-right: 17.6px; }
 
@@ -2621,8 +3081,13 @@ dt {
 
 /** Execution time */
 .execution-89:after {
+  animation: move 5s 1;
   width: 1780px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 89; } }
 .e-float-89:after {
   padding-right: 17.8px; }
 
@@ -2649,8 +3114,13 @@ dt {
 
 /** Execution time */
 .execution-90:after {
+  animation: move 5s 1;
   width: 1800px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 90; } }
 .e-float-90:after {
   padding-right: 18px; }
 
@@ -2677,8 +3147,13 @@ dt {
 
 /** Execution time */
 .execution-91:after {
+  animation: move 5s 1;
   width: 1820px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 91; } }
 .e-float-91:after {
   padding-right: 18.2px; }
 
@@ -2705,8 +3180,13 @@ dt {
 
 /** Execution time */
 .execution-92:after {
+  animation: move 5s 1;
   width: 1840px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 92; } }
 .e-float-92:after {
   padding-right: 18.4px; }
 
@@ -2733,8 +3213,13 @@ dt {
 
 /** Execution time */
 .execution-93:after {
+  animation: move 5s 1;
   width: 1860px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 93; } }
 .e-float-93:after {
   padding-right: 18.6px; }
 
@@ -2761,8 +3246,13 @@ dt {
 
 /** Execution time */
 .execution-94:after {
+  animation: move 5s 1;
   width: 1880px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 94; } }
 .e-float-94:after {
   padding-right: 18.8px; }
 
@@ -2789,8 +3279,13 @@ dt {
 
 /** Execution time */
 .execution-95:after {
+  animation: move 5s 1;
   width: 1900px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 95; } }
 .e-float-95:after {
   padding-right: 19px; }
 
@@ -2817,8 +3312,13 @@ dt {
 
 /** Execution time */
 .execution-96:after {
+  animation: move 5s 1;
   width: 1920px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 96; } }
 .e-float-96:after {
   padding-right: 19.2px; }
 
@@ -2845,8 +3345,13 @@ dt {
 
 /** Execution time */
 .execution-97:after {
+  animation: move 5s 1;
   width: 1940px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 97; } }
 .e-float-97:after {
   padding-right: 19.4px; }
 
@@ -2873,8 +3378,13 @@ dt {
 
 /** Execution time */
 .execution-98:after {
+  animation: move 5s 1;
   width: 1960px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 98; } }
 .e-float-98:after {
   padding-right: 19.6px; }
 
@@ -2901,8 +3411,13 @@ dt {
 
 /** Execution time */
 .execution-99:after {
+  animation: move 5s 1;
   width: 1980px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 99; } }
 .e-float-99:after {
   padding-right: 19.8px; }
 
@@ -2929,8 +3444,13 @@ dt {
 
 /** Execution time */
 .execution-100:after {
+  animation: move 5s 1;
   width: 2000px; }
-
+@keyframes move {
+  0% {
+    width: 0px; }
+  100% {
+    width: 100; } }
 .e-float-100:after {
   padding-right: 20px; }
 
@@ -3009,5 +3529,37 @@ dt {
     padding: 6px;
     width: 30px;
     margin: 0 2.5p; }
+
+#plus {
+  background-color: #228B22;
+  color: #FFF;
+  border: none;
+  font-size: 20px;
+  font-weigth: bold; }
+
+#run {
+  background-color: #8B0000;
+  color: #FFF;
+  border: none;
+  font-size: 20px;
+  font-weigth: bold; }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 15%;
+  margin-left: 40px; }
+
+td, th {
+  border: 1px solid;
+  text-align: center;
+  padding: 20px; }
+
+tr:nth-child(even) {
+  background-color: #dddddd; }
+
+.disco td, th {
+  border: 20px solid;
+  padding: 20px; }
 
 /*# sourceMappingURL=scheduling.css.map */
